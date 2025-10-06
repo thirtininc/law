@@ -485,6 +485,21 @@
         .footer-legal-links a:hover {
             color: white;
         }
+        
+        .xdulr-logo svg {
+            width: 24px;
+            height: 24px;
+            display: block;
+        }
+
+        .logo-fill-dark {
+            fill: #b0c4de; /* A color that matches the footer text */
+            transition: fill 0.3s ease;
+        }
+
+        .xdulr-logo:hover .logo-fill-dark {
+            fill: #ffffff; /* A brighter color on hover */
+        }
 
 
         /* Responsive Adjustments */
@@ -942,6 +957,19 @@
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="disclaimer.html">Legal Disclaimer</a>
                 </div>
+                <div class="powered-by-container mt-6 flex justify-center items-center gap-2">
+                    <p class="text-sm text-[#9ab]">Powered by</p>
+                    <a href="https://xdulr.com" target="_blank" rel="noopener noreferrer" class="xdulr-logo">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <title>XDULR Logo</title>
+                            <polygon class="logo-fill-dark" points="0,0 95,0 0,95" />
+                            <polygon class="logo-fill-dark" points="100,5 100,100 5,100" />
+                            <g transform="rotate(45 50 50) scale(0.8) translate(12.5, 12.5)">
+                               <path d="M 50 10 C 60 40, 60 40, 90 50 C 60 60, 60 60, 50 90 C 40 60, 40 60, 10 50 C 40 40, 40 40, 50 10 Z" fill="white" />
+                            </g>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
@@ -1043,4 +1071,3 @@
 
 </body>
 </html>
-
