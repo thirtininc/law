@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjun Sekhon - Portfolio | Lakeshore Law</title>
+    <!-- Fonts for professional look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-color: #0A2342; 
+            --secondary-color: #1a1a1a; 
+            --background-color: #FFFFFF;
+            --light-background-color: #f8f9fa;
+            --text-color: #2c2c2c; 
+            --light-text-color: #555555; 
+            --dark-text: #2F4F4F;
+            --section-bg-alt: #f0f4f8;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-background-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding-top: 80px; 
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem; 
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        header {
+            position: fixed;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-color: var(--background-color);
+            padding: 2px 25px; 
+            border-radius: 0 1rem 1rem 0;
+            max-width: 800px;
+            margin: 0 auto; 
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            position: relative; 
+        }
+        .logo svg {
+            width: 55px; 
+            height: 55px; 
+            display: block; 
+        }
+        .logo {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-decoration: none;
+            z-index: 1001; 
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .logo-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 2.25rem;
+            line-height: 1;
+        }
+        .logo-text-lakeshore { color: #2F4F4F; font-weight: 500; }
+        .logo-text-law { color: #0A2342; font-weight: 900; }
+        .nav-link-group { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; color: var(--dark-text); font-weight: 500; transition: color 0.3s ease; font-size: 1rem; padding: 0.25rem 0; display: flex; flex-direction: column; align-items: center; line-height: 1.2; }
+        .nav-links i { font-size: 1.2rem; margin-bottom: 3px; }
+        .nav-links a:hover { color: #0A2342; }
+        .btn { display: inline-block; background-color: var(--primary-color); color: var(--background-color); padding: 0.75rem 1.75rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: background-color 0.3s ease, transform 0.3s ease; font-size: 1rem; cursor: pointer; }
+        .btn:hover { background-color: #2F4F4F; transform: translateY(-1px); }
+        .portfolio-hero { padding: 4rem 0 0; background-color: var(--primary-color); color: white; overflow: hidden; }
+        .section-alt { background-color: var(--section-bg-alt); }
+        .case-card { background: white; border-radius: 0.5rem; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.07); border-left: 4px solid var(--primary-color); }
+        footer { background-color: var(--primary-color); color: #e0e0e0; padding: 60px 0 30px; }
+        .footer-col h4 { color: var(--background-color); }
+        .footer-col p, .footer-col a, .footer-contact-item span { color: #b0c4de; }
+        .footer-col a:hover { color: white; }
+        .footer-social-links a { display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.1); color: white; margin-right: 10px; transition: all 0.3s ease; }
+        .footer-social-links a:hover { background-color: white; color: var(--primary-color); transform: translateY(-2px); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.5rem; text-align: center; }
+        .footer-bottom p { color: #9ab; }
+        .footer-legal-links a { color: #9ab; margin: 0 10px; text-decoration: underline; }
+        .xdulr-logo svg { width: 24px; height: 24px; display: block; }
+        .logo-fill-dark { fill: #b0c4de; transition: fill 0.3s ease; }
+        .xdulr-logo:hover .logo-fill-dark { fill: #ffffff; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo" aria-label="Lakeshore Law Home">
+                    <svg viewBox="75 40 50 50" xmlns="http://www.w3.org/2000/svg"><g><g fill="#2F4F4F"><rect x="80" y="45" width="10" height="40"></rect><rect x="80" y="75" width="40" height="10"></rect></g><g fill="#708090"><rect x="110" y="45" width="10" height="40"></rect><rect x="80" y="45" width="40" height="10"></rect></g><rect x="90" y="55" width="20" height="20" fill="#0A2342"></rect></g></svg>
+                    <span class="logo-text"><span class="logo-text-lakeshore">LAKESHORE</span><span class="logo-text-law">LAW</span></span>
+                </a>
+                <ul class="nav-link-group nav-links">
+                    <li><a href="index.html#home" title="Home"><i class="fas fa-home"></i></a></li>
+                    <li><a href="index.html#services" title="Services"><i class="fas fa-gavel"></i></a></li>
+                    <li><a href="index.html#blog" title="Blog"><i class="fas fa-feather-alt"></i></a></li>
+                    <li><a href="index.html#testimonials" title="Feedback"><i class="fas fa-comment-dots"></i></a></li>
+                    <li><a href="index.html#faq" title="FAQ"><i class="fas fa-question-circle"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Portfolio Hero -->
+        <section class="portfolio-hero">
+            <div class="container">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center md:text-left py-12">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">Arjun Sekhon</h1>
+                        <p class="text-2xl text-white/80 mt-2">Managing Partner</p>
+                    </div>
+                    <div class="flex justify-center md:justify-end self-end">
+                         <img src="arjun-sekhon-transparent.png" alt="Portrait of Arjun Sekhon" class="max-h-[450px] w-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=ARJUN+SEKHON';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-20">
+            <div class="container max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-10">About Arjun</h2>
+                <p class="text-lg text-gray-700 leading-relaxed text-center">
+                    As the managing partner of Lakeshore Law, Arjun brings over 15 years of dedicated experience in corporate law and strategic litigation. His vision was to build a modern law firm that prioritizes client success through proactive, strategic legal counsel. Arjun is renowned for his sharp legal acumen and his ability to navigate complex corporate landscapes, from high-stakes mergers and acquisitions to intricate shareholder disputes. He is committed to mentorship within the firm and fostering a culture of excellence and integrity.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="py-10 bg-white">
+            <div class="container max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:divide-x divide-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-4xl font-bold text-primary-color">120+</h3>
+                        <p class="text-gray-600 mt-2 font-semibold">Cases Solved</p>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-4xl font-bold text-primary-color">15+</h3>
+                        <p class="text-gray-600 mt-2 font-semibold">Years of Experience</p>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-4xl font-bold text-primary-color">99%</h3>
+                        <p class="text-gray-600 mt-2 font-semibold">Client Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Areas of Expertise -->
+        <section class="py-20 section-alt">
+            <div class="container max-w-5xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Areas of Expertise</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i class="fas fa-briefcase text-4xl mb-4 text-primary-color"></i>
+                        <h3 class="text-xl font-bold mb-2">Corporate Law</h3>
+                        <p class="text-gray-600">Expertise in M&A, corporate governance, and structuring commercial transactions.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i class="fas fa-balance-scale text-4xl mb-4 text-primary-color"></i>
+                        <h3 class="text-xl font-bold mb-2">Strategic Litigation</h3>
+                        <p class="text-gray-600">Representing clients in complex commercial disputes with a focus on efficient resolution.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <i class="fas fa-file-signature text-4xl mb-4 text-primary-color"></i>
+                        <h3 class="text-xl font-bold mb-2">IT & Tech Contracts</h3>
+                        <p class="text-gray-600">Advising on SaaS agreements, software licensing, and technology-related legal matters.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Notable Cases -->
+        <section class="py-20">
+            <div class="container max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Notable Case Highlights</h2>
+                <div class="space-y-6">
+                    <div class="case-card">
+                        <h3 class="text-xl font-bold mb-1">Tech Merger Valued at $150M</h3>
+                        <p class="text-gray-600">Lead counsel for a rising software company in its successful acquisition by a publicly-traded corporation, navigating complex regulatory approvals and due diligence.</p>
+                    </div>
+                    <div class="case-card">
+                        <h3 class="text-xl font-bold mb-1">Shareholder Dispute Resolution</h3>
+                        <p class="text-gray-600">Achieved a multi-million dollar settlement for a minority shareholder in a contentious corporate dispute, preserving the client's investment and avoiding protracted litigation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-20 text-center bg-white" id="contact">
+            <div class="container max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold mb-8">Get In Touch</h2>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+                    <div class="flex items-center gap-4 text-lg">
+                        <i class="fas fa-phone text-2xl text-primary-color"></i>
+                        <a href="tel:+1-905-956-0539" class="text-gray-700 hover:text-primary-color">(905) 956-0539</a>
+                    </div>
+                    <div class="flex items-center gap-4 text-lg">
+                        <i class="fas fa-envelope text-2xl text-primary-color"></i>
+                        <a href="mailto:asekhon@lakeshorelaw.com" class="text-gray-700 hover:text-primary-color">asekhon@lakeshorelaw.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+             <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
+                <div class="footer-col">
+                    <h4 class="text-xl font-bold mb-5">About Lakeshore Law</h4>
+                    <p class="mb-5">A modern law firm dedicated to providing strategic, proactive, and client-focused legal services that deliver results.</p>
+                    <div class="footer-social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="text-xl font-bold mb-5">Quick Links</h4>
+                    <ul>
+                        <li class="mb-2"><a href="index.html#home">Home</a></li>
+                        <li class="mb-2"><a href="index.html#services">Practice Areas</a></li>
+                        <li class="mb-2"><a href="index.html#team">Our Team</a></li>
+                        <li class="mb-2"><a href="index.html#blog">Legal Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="text-xl font-bold mb-5">Practice Areas</h4>
+                     <ul>
+                        <li class="mb-2"><a href="index.html#services">Corporate Law</a></li>
+                        <li class="mb-2"><a href="index.html#services">Criminal Law</a></li>
+                        <li class="mb-2"><a href="index.html#services">Civil Litigation</a></li>
+                        <li><a href="index.html#services">Real Estate Law</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="text-xl font-bold mb-5">Contact Info</h4>
+                    <div class="flex items-center mb-3"><i class="fas fa-phone mr-3"></i><span>(905) 956-0539</span></div>
+                    <div class="flex items-start mb-3"><i class="fas fa-map-marker-alt mr-3 mt-1"></i><span>29 Lakeshore Road, Toronto, ON</span></div>
+                    <div class="flex items-center mb-3"><i class="fas fa-envelope mr-3"></i><span>support@lakeshorelaw.com</span></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="text-sm mb-4">&copy; 2025 Lakeshore Law. All Rights Reserved.</p>
+                <div class="footer-legal-links"><a href="privacy-policy.html">Privacy Policy</a><a href="disclaimer.html">Legal Disclaimer</a></div>
+                <div class="powered-by-container mt-6 flex justify-center items-center gap-2">
+                    <p class="text-sm text-[#9ab]">Powered by</p>
+                    <a href="https://xdulr.com" target="_blank" rel="noopener noreferrer" class="xdulr-logo">
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><title>XDULR Logo</title><polygon class="logo-fill-dark" points="0,0 95,0 0,95" /><polygon class="logo-fill-dark" points="100,5 100,100 5,100" /><g transform="rotate(45 50 50) scale(0.8) translate(12.5, 12.5)"><path d="M 50 10 C 60 40, 60 40, 90 50 C 60 60, 60 60, 50 90 C 40 60, 40 60, 10 50 C 40 40, 40 40, 50 10 Z" fill="white" /></g></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
