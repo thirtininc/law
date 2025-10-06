@@ -231,7 +231,6 @@
             z-index: 5;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             max-width: 950px;
-            /* overflow: hidden; */ /* Allow image to overflow */
         }
         .quote-content {
             display: flex;
@@ -269,6 +268,66 @@
             font-weight: 700;
             color: var(--primary-color);
         }
+        
+        /* New Team Section Styles */
+        .team-member-card {
+            background-color: var(--background-color);
+            border-radius: 1rem;
+            margin: 4rem auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 950px;
+        }
+
+        .team-member-content {
+            display: flex;
+            align-items: center;
+            min-height: 350px;
+        }
+
+        .team-member-content.image-right {
+            flex-direction: row-reverse;
+        }
+
+        .team-member-image {
+            flex-shrink: 0;
+            width: 320px;
+            align-self: flex-end;
+            margin-top: -60px;
+            margin-bottom: -20px;
+            position: relative;
+        }
+
+        .team-member-content .team-member-image {
+            margin-left: -40px;
+        }
+        .team-member-content.image-right .team-member-image {
+            margin-left: 0;
+            margin-right: -40px;
+        }
+
+        .team-member-image img {
+            display: block;
+            width: 100%;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+        }
+
+        .team-member-text {
+            padding: 2.5rem 3rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .team-member-text h3 {
+            font-size: 1.75rem;
+        }
+
+        .team-member-text .title {
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
 
         /* New Section Backgrounds for alternating colors */
         #team, #testimonials, #contact, #case-results {
@@ -289,7 +348,7 @@
 
 
         /* Services & Features Cards */
-        .service-item, .testimonial-item, .team-card, .blog-post-card, .case-result-card {
+        .service-item, .testimonial-item, .blog-post-card, .case-result-card {
             background-color: var(--background-color);
             padding: 2.5rem;
             border-radius: 1rem; /* Rounded corners */
@@ -297,7 +356,7 @@
             border: 1px solid #e0e0e0;
             text-align: center;
         }
-        .service-item:hover, .team-card:hover, .blog-post-card:hover {
+        .service-item:hover, .blog-post-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
             border-color: var(--primary-color); 
@@ -313,16 +372,6 @@
             margin: 0 auto 1rem;
             object-fit: cover;
             border: 3px solid #e0e0e0;
-        }
-
-        .team-card img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            object-fit: cover;
-            border: 4px solid var(--background-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .blog-post-card { text-align: left; }
@@ -562,6 +611,24 @@
             .quote-content blockquote { font-size: 1.2rem; text-align: center; }
             .quote-content .author { text-align: center; }
             
+            .team-member-content, .team-member-content.image-right {
+                flex-direction: column;
+                text-align: center;
+            }
+            .team-member-image {
+                width: 250px;
+                margin: -60px auto 0;
+                align-self: center;
+            }
+            .team-member-content .team-member-image, .team-member-content.image-right .team-member-image {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .team-member-text {
+                text-align: center;
+                padding: 2rem;
+            }
+
             .footer-col {
                 text-align: center;
             }
@@ -658,7 +725,7 @@
         <section class="quote-section">
             <div class="quote-content">
                 <div class="quote-image">
-                    <img src="arjuns.png" 
+                    <img src="arjuns2.png" 
                          alt="Arjun Sekhon"
                          onerror="this.onerror=null;this.src='https://placehold.co/300x450/EBF4FF/0A2342?text=Image+Not+Found';">
                 </div>
@@ -716,26 +783,41 @@
         <section class="py-20" id="team">
             <div class="container">
                 <h2 class="text-center text-4xl font-bold mb-12">Meet Our Legal Experts</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                    <div class="team-card">
-                        <img src="https://placehold.co/400x400/0A2342/FFFFFF?text=AS" alt="Portrait of Arjun Sekhon">
-                        <h3 class="text-xl font-bold mb-1">Arjun Sekhon</h3>
-                        <p class="text-gray-500 mb-3 font-medium">Managing Partner</p>
-                        <p class="text-gray-600">Arjun specializes in corporate law and strategic litigation, bringing over 15 years of experience to the firm.</p>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://placehold.co/400x400/2F4F4F/FFFFFF?text=JS" alt="Portrait of Jessica Singh">
-                        <h3 class="text-xl font-bold mb-1">Jessica Singh</h3>
-                        <p class="text-gray-500 mb-3 font-medium">Head of Criminal Law</p>
-                        <p class="text-gray-600">Jessica is a formidable presence in the courtroom, known for her meticulous case preparation and client advocacy.</p>
-                    </div>
-                    <div class="team-card">
-                        <img src="https://placehold.co/400x400/708090/FFFFFF?text=MB" alt="Portrait of Michael Brown">
-                        <h3 class="text-xl font-bold mb-1">Michael Brown</h3>
-                        <p class="text-gray-500 mb-3 font-medium">Real Estate Counsel</p>
-                        <p class="text-gray-600">Michael guides clients through complex real estate transactions with a focus on clarity and efficiency.</p>
+
+                <!-- Arjun Sekhon - Image Left -->
+                <div class="team-member-card">
+                    <div class="team-member-content">
+                        <div class="team-member-image">
+                            <!-- USE a transparent PNG here -->
+                            <img src="arjuns.png" 
+                                 alt="Portrait of ARJUN SEKHON"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=ARJUN+SEKHON';">
+                        </div>
+                        <div class="team-member-text">
+                            <h3 class="font-bold mb-1">ARJUN SEKHON</h3>
+                            <span class="title">Managing Partner</span>
+                            <p class="text-gray-600">Arjun specializes in corporate law and strategic litigation, bringing over 15 years of experience to the firm. He is dedicated to providing clients with innovative solutions and personalized legal strategies that drive success.</p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Daniel Ibrahim - Image Right -->
+                <div class="team-member-card">
+                    <div class="team-member-content image-right">
+                        <div class="team-member-image">
+                             <!-- USE a transparent PNG here -->
+                            <img src="daniel.png" 
+                                 alt="Portrait of Daniel Ibrahim"
+                                 onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=DANIEL+IBRAHIM';">
+                        </div>
+                        <div class="team-member-text">
+                            <h3 class="font-bold mb-1">Daniel Ibrahim</h3>
+                            <span class="title">Associate Lawyer</span>
+                            <p class="text-gray-600">Daniel focuses on immigration and employment law, helping clients navigate complex legal landscapes with dedication and expertise. He is committed to advocating for his clients' rights and achieving the best possible outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -1071,3 +1153,4 @@
 
 </body>
 </html>
+
