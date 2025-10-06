@@ -1033,7 +1033,7 @@
                     </div>
                     <div class="flex items-center mb-3 footer-contact-item">
                         <i class="fas fa-envelope text-lg w-6 text-center"></i>
-                        <span>support@lakeshorelaw.com</span>
+                        <span>support@lakeshore.law</span>
                     </div>
                      <div class="flex items-center mb-3 footer-contact-item">
                         <i class="fas fa-clock text-lg w-6 text-center"></i>
@@ -1069,19 +1069,22 @@
         <div class="modal-content">
             <i id="close-modal-btn" class="fas fa-times modal-close"></i>
             <h3 class="text-2xl font-bold mb-4 text-center">Request a Consultation</h3>
-            <form id="contact-form">
+            <!-- UPDATE: Add action URL and method="POST" -->
+            <form id="contact-form" action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
                 <input type="text" name="name" placeholder="Full Name" class="form-input" required>
                 <input type="email" name="email" placeholder="Email Address" class="form-input" required>
                 <input type="tel" name="phone" placeholder="Phone Number" class="form-input">
                 <textarea name="message" placeholder="Briefly describe your case..." class="form-input" rows="4" required></textarea>
                 <button type="submit" class="btn w-full">Submit Request</button>
             </form>
-            <div id="form-success-message">
+            <div id="form-success-message" class="form-status-message success">
                 <strong>Thank you!</strong> Your request has been sent. We will contact you shortly.
+            </div>
+            <div id="form-error-message" class="form-status-message error">
+                <strong>Oops!</strong> Something went wrong. Please try again later.
             </div>
         </div>
     </div>
-
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -1131,6 +1134,7 @@
             const closeModalBtn = document.getElementById('close-modal-btn');
             const contactForm = document.getElementById('contact-form');
             const successMessage = document.getElementById('form-success-message');
+            const errorMessage = document.getElementById('form-error-message');
 
             const openModal = () => modal.classList.add('active');
             const closeModal = () => modal.classList.remove('active');
@@ -1146,20 +1150,45 @@
             
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                contactForm.style.display = 'none';
-                successMessage.style.display = 'block';
-                // Reset form after a delay
-                setTimeout(() => {
-                    contactForm.reset();
-                    contactForm.style.display = 'block';
+                const form = e.target;
+                const data = new FormData(form);
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                }).then(response => {
+                    contactForm.style.display = 'none';
+                    if (response.ok) {
+                        successMessage.style.display = 'block';
+                        errorMessage.style.display = 'none';
+                        setTimeout(() => {
+                            form.reset();
+                            contactForm.style.display = 'block';
+                            successMessage.style.display = 'none';
+                            closeModal();
+                        }, 4000);
+                    } else {
+                        errorMessage.style.display = 'block';
+                        successMessage.style.display = 'none';
+                         setTimeout(() => {
+                            contactForm.style.display = 'block';
+                            errorMessage.style.display = 'none';
+                        }, 5000);
+                    }
+                }).catch(error => {
+                    contactForm.style.display = 'none';
+                    errorMessage.style.display = 'block';
                     successMessage.style.display = 'none';
-                    closeModal();
-                }, 4000);
+                     setTimeout(() => {
+                        contactForm.style.display = 'block';
+                        errorMessage.style.display = 'none';
+                    }, 5000);
+                });
             });
         });
     </script>
 
 </body>
 </html>
-
 
