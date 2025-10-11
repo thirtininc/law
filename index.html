@@ -3,1192 +3,722 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lakeshore Law - Strategic Legal Solutions</title>
-    <!-- Fonts for professional look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
+    <title>Lakeshore Law | Top Law Firm in Oakville | Your Legal Partner</title>
+    <meta name="description" content="Discover Lakeshore Law, a top law firm in Oakville. Our skilled lawyers offer expert guidance in personal and business law, providing strategic solutions with a client-first approach.">
+    <meta name="keywords" content="top law firm Oakville, Oakville lawyers, legal partner Oakville, business law, family law, criminal defense Oakville">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display.swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- GSAP for animation -->
+    <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <!-- For most browsers -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-<!-- For Apple devices -->
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
 
     <style>
         :root {
-            /* Primary color updated for the new design */
             --primary-color: #0A2342; 
-            /* Secondary dark color remains the same, but serves as primary text */
             --secondary-color: #1a1a1a; 
             --background-color: #FFFFFF;
             --light-background-color: #f8f9fa;
             --text-color: #2c2c2c; 
             --light-text-color: #555555; 
-            /* Dark color for text elements on light backgrounds */
             --dark-text: #2F4F4F;
-            /* New alternating background color */
             --section-bg-alt: #f0f4f8;
         }
-
-        /* Base styles using Inter for all text to match the navigation bar */
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--light-background-color);
             color: var(--text-color);
             line-height: 1.7;
             overflow-x: clip; 
-            padding-top: 80px; /* Space for fixed header */
+            padding-top: 80px;
         }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        h1, h2, h3, h4 { font-family: 'Inter', sans-serif; font-weight: 700; color: var(--secondary-color); }
         
-        #background-animation-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+        header { position: fixed; top: 20px; left: 0; width: 100%; z-index: 1000; }
+        .navbar { display: flex; justify-content: flex-end; align-items: center; background-color: var(--background-color); padding: 2px 25px; border-radius: 0 1rem 1rem 0; max-width: 800px; margin: 0 auto; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1); position: relative; }
+        .logo svg { width: 55px; height: 55px; display: block; }
+        .logo { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); text-decoration: none; z-index: 1001; display: flex; align-items: center; gap: 4px; }
+        .logo-text { font-family: 'Inter', sans-serif; font-size: 2.25rem; line-height: 1; }
+        .logo-text-lakeshore { color: #2F4F4F; font-weight: 500; letter-spacing: 0.5px; }
+        .logo-text-law { color: #0A2342; font-weight: 900; }
+        .nav-link-group { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; color: var(--dark-text); font-weight: 500; transition: color 0.3s ease; font-size: 1rem; padding: 0.25rem 0; display: flex; flex-direction: column; align-items: center; line-height: 1.2; }
+        .nav-links i { font-size: 1.2rem; margin-bottom: 3px; }
+        .nav-links a:hover { color: #0A2342; }
+        .hero { margin-bottom: 2rem; }
+        .hero-card { background-color: #0A2342; color: var(--background-color); padding: 180px 0 120px; text-align: center; border-radius: 1rem; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); max-width: 1200px; margin-left: auto; margin-right: auto; opacity: 0; transform: scale(0.95); overflow: hidden; position: relative; }
+        .hero-background-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+        .hero-card .container { position: relative; z-index: 1; }
+        .hero h1 { font-size: 4rem; font-weight: 900; color: var(--background-color); }
+        .hero p { font-size: 1.25rem; color: #ddd; }
+
+        .btn { display: inline-block; background-color: var(--primary-color); color: var(--background-color); padding: 0.75rem 1.75rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: background-color 0.3s ease, transform 0.3s ease; font-size: 1rem; cursor: pointer; }
+        .btn:hover { background-color: #2F4F4F; transform: translateY(-1px); }
+
+        .quote-section { padding: 0; background-color: var(--background-color); border-radius: 1rem; margin: -80px auto 0; position: relative; z-index: 5; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 950px; }
+        .quote-content { display: flex; align-items: center; }
+        .quote-image { flex-shrink: 0; width: 300px; align-self: flex-end; margin-top: -80px; }
+        .quote-image img { display: block; width: 100%; }
+        .quote-text { padding: 2.5rem 3rem; text-align: left; }
+        .quote-content blockquote { font-size: 1.5rem; line-height: 1.4; font-style: italic; font-weight: 400; color: var(--secondary-color); margin: 0; }
+        .quote-content .author { margin-top: 20px; font-size: 1rem; font-weight: 500; color: var(--light-text-color); }
+        .quote-content .author span { font-weight: 700; color: var(--primary-color); }
+
+        .section-alt { background-color: var(--section-bg-alt); }
+        .blog-post-card { background-color: var(--background-color); padding: 2.5rem; border-radius: 1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #e0e0e0; text-align: left; height: 100%; display: flex; flex-direction: column; }
+        .blog-post-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--primary-color); }
+        .blog-post-card p { flex-grow: 1; }
+        .blog-post-card h3 a { color: var(--secondary-color); transition: color 0.3s; }
+        .blog-post-card h3 a:hover { color: var(--primary-color); }
+        .blog-post-card .read-more { color: var(--primary-color); font-weight: 600; text-decoration: none; }
+
+
+        .team-member-card { background-color: var(--background-color); border-radius: 1rem; margin: 4rem auto; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 950px; }
+        .team-member-content { display: flex; align-items: center; min-height: 350px; }
+        .team-member-content.image-right { flex-direction: row-reverse; }
+        .team-member-image { flex-shrink: 0; width: 380px; align-self: stretch; margin-top: -80px; margin-bottom: -20px; position: relative; display: flex; align-items: flex-end; }
+        .team-member-content .team-member-image { margin-left: -60px; }
+        .team-member-content.image-right .team-member-image { margin-left: 0; margin-right: -60px; }
+        .team-member-image img { display: block; width: 100%; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2)); object-fit: cover; }
+        .team-member-text { padding: 2.5rem 3rem; text-align: left; flex-grow: 1; }
+        .team-member-text h3 { font-size: 1.75rem; }
+        .team-member-text .title { font-weight: 500; color: var(--primary-color); margin-bottom: 1rem; display: block; }
+        
+        /* Slider section styles */
+        .slider-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 100%;
             overflow: hidden;
-            z-index: -1;
+            padding: 2rem 0;
         }
-
-        .animated-icon {
+        .slider-logo-hook {
             position: absolute;
-            color: #d1d5db; /* A very light, subtle gray */
-            will-change: transform, opacity;
-        }
-
-        /* General container to center all main content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem; 
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            color: var(--secondary-color);
-        }
-        
-        /* Fixed, Rounded, Centered Navigation Bar */
-        header {
-            position: fixed;
-            top: 20px;
             left: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: flex-end; /* Align links to the right */
-            align-items: center;
-            background-color: var(--background-color);
-            padding: 2px 25px; 
-            border-radius: 0 1rem 1rem 0; /* Sharp corners on the left, rounded on the right */
-            max-width: 800px;
-            margin: 0 auto; 
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            position: relative; 
-        }
-
-        /* New Logo SVG Style */
-        .logo svg {
-            width: 55px; 
-            height: 55px; 
-            display: block; 
-        }
-
-        /* Logo Container Positioning for Overflow Effect */
-        .logo {
-            position: absolute;
-            left: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            text-decoration: none;
-            z-index: 1001; 
-            display: flex;
-            align-items: center;
-            gap: 4px; /* Reduced gap */
-        }
-
-        .logo-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 2.25rem;
-            line-height: 1;
-        }
-
-        .logo-text-lakeshore {
-            color: #2F4F4F;
-            font-weight: 500; /* Normal weight */
-            letter-spacing: 0.5px; /* Slight spacing */
-        }
-        .logo-text-law {
-            color: #0A2342;
-            font-weight: 900; /* Bold weight */
-        }
-
-
-        /* Container for the right-aligned icon group */
-        .nav-link-group {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-links a {
-            /* Styles for the links (text and icons) */
-            text-decoration: none;
-            color: var(--dark-text); 
-            font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 1rem;
-            padding: 0.25rem 0;
-            display: flex;
-            flex-direction: column; 
-            align-items: center;
-            line-height: 1.2;
-        }
-        .nav-links i {
-            font-size: 1.2rem; 
-            margin-bottom: 3px;
-        }
-
-        .nav-links a:hover {
-            color: #0A2342; 
-        }
-        
-        /* Button Style */
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            padding: 0.75rem 1.75rem;
-            border-radius: 50px; /* Rounded corners for buttons */
-            text-decoration: none;
-            font-weight: 700;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #2F4F4F; 
-            transform: translateY(-1px);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-bottom: 2rem;
-        }
-        
-        .hero-card {
-            background-color: #0A2342;
-            color: var(--background-color);
-            padding: 180px 0 120px;
-            text-align: center;
-            border-radius: 1rem; /* Rounded corners */
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0; 
-            transform: scale(0.95);
-            overflow: hidden; /* Ensures gradients don't bleed out */
-            position: relative; /* Positioning context for SVG background */
-        }
-
-        .hero-background-svg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0; /* Behind the content */
-        }
-        
-        .hero-card .container {
-            position: relative; /* Ensure content is on top of SVG */
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--background-color);
-        }
-        .hero p {
-            font-size: 1.25rem;
-            color: #ddd;
-        }
-        
-        /* Quote Section - Floating Card with Image */
-        .quote-section {
-            padding: 0;
-            background-color: var(--background-color);
-            border-radius: 1rem;
-            margin: -80px auto 0;
-            position: relative;
-            z-index: 5;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 950px;
-        }
-        .quote-content {
-            display: flex;
-            align-items: center;
-        }
-        .quote-image {
-            flex-shrink: 0;
-            width: 300px;
-            align-self: flex-end;
-            margin-top: -80px; /* Pulls image up from its bottom alignment */
-        }
-        .quote-image img {
-            display: block;
-            width: 100%;
-        }
-        .quote-text {
-            padding: 2.5rem 3rem;
-            text-align: left;
-        }
-        .quote-content blockquote {
-            font-size: 1.5rem;
-            line-height: 1.4;
-            font-style: italic;
-            font-weight: 400;
-            color: var(--secondary-color);
-            margin: 0;
-        }
-        .quote-content .author {
-            margin-top: 20px;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--light-text-color);
-        }
-        .quote-content .author span {
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        /* New Team Section Styles */
-        .team-member-card {
-            background-color: var(--background-color);
-            border-radius: 1rem;
-            margin: 4rem auto;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 950px;
-        }
-
-        .team-member-content {
-            display: flex;
-            align-items: center;
-            min-height: 350px;
-        }
-
-        .team-member-content.image-right {
-            flex-direction: row-reverse;
-        }
-
-        .team-member-image {
-            flex-shrink: 0;
-            width: 320px;
-            align-self: flex-end;
-            margin-top: -60px;
-            margin-bottom: -20px;
-            position: relative;
-        }
-
-        .team-member-content .team-member-image {
-            margin-left: -40px;
-        }
-        .team-member-content.image-right .team-member-image {
-            margin-left: 0;
-            margin-right: -40px;
-        }
-
-        .team-member-image img {
-            display: block;
-            width: 100%;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
-        }
-
-        .team-member-text {
-            padding: 2.5rem 3rem;
-            text-align: left;
-            flex-grow: 1;
-        }
-
-        .team-member-text h3 {
-            font-size: 1.75rem;
-        }
-
-        .team-member-text .title {
-            font-weight: 500;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* New Section Backgrounds for alternating colors */
-        #team, #testimonials, #contact, #case-results {
+            z-index: 10;
             background-color: var(--section-bg-alt);
+            padding-right: 20px;
         }
-        #services, #faq, #blog {
-            background-color: var(--background-color);
+        .slider-logo-hook svg {
+            width: 60px;
+            height: 60px;
         }
-
-        /* Gradient transitions for section backgrounds */
-        #team, #testimonials, #contact {
-            background-image: linear-gradient(to bottom, var(--background-color) 0%, var(--section-bg-alt) 120px);
-        }
-
-        #blog, #faq {
-            background-image: linear-gradient(to bottom, var(--section-bg-alt) 0%, var(--background-color) 120px);
-        }
-
-
-        /* Services & Features Cards */
-        .service-item, .testimonial-item, .blog-post-card, .case-result-card {
-            background-color: var(--background-color);
-            padding: 2.5rem;
-            border-radius: 1rem; /* Rounded corners */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e0e0e0;
-            text-align: center;
-        }
-        .service-item:hover, .blog-post-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-            border-color: var(--primary-color); 
-        }
-        .service-item i {
-            color: var(--primary-color); 
-        }
-        
-        .testimonial-item img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            object-fit: cover;
-            border: 3px solid #e0e0e0;
-        }
-
-        .blog-post-card { text-align: left; }
-        .blog-post-card img {
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .blog-post-card .category {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            background-color: #e0e7ff;
-            color: #4338ca;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        
-        .case-result-card {
-            border-left: 5px solid var(--primary-color);
-            text-align: left;
-        }
-        .case-result-card .outcome {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .faq-list {
-           border-radius: 1rem; /* Rounded corners for FAQ container */
-           overflow: hidden; /* Clip inner corners */
-        }
-
-        /* Contact Modal Styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .slider-track-wrapper {
+            padding-left: 80px; /* Space for the logo */
             width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1001;
             display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .slider-track {
+            display: flex;
+            width: fit-content;
+            animation: slide 60s linear infinite;
+        }
+        .slider-track.reverse {
+            animation-direction: reverse;
+        }
+        .slider-container:hover .slider-track {
+            animation-play-state: paused;
+        }
+        .slider-card {
+            width: 220px;
+            height: 220px;
+            flex-shrink: 0;
+            margin-right: 1.5rem;
+            background-color: white;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-content {
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 1rem;
-            width: 90%;
-            max-width: 500px;
+            padding: 1.5rem;
             position: relative;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
+            z-index: 1;
+            overflow: hidden;
+            transition: all 0.4s ease;
         }
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
+        .slider-card:hover {
+            width: 400px;
+            height: 220px;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: flex-start;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            z-index: 100;
         }
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            color: #888;
-            cursor: pointer;
-            transition: color 0.3s ease;
+        .slider-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            transition: all 0.4s ease;
         }
-        .modal-close:hover {
-            color: #333;
+        .slider-card:hover i {
+            font-size: 2.2rem;
+            margin-bottom: 0;
+            margin-right: 1.5rem;
+            margin-top: 0.25rem;
         }
-        .form-input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            font-family: 'Inter', sans-serif;
-        }
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(10, 35, 66, 0.2);
-        }
-        #form-success-message {
-            display: none;
-            padding: 1rem;
-            background-color: #d1e7dd;
-            color: #0f5132;
-            border: 1px solid #badbcc;
-            border-radius: 8px;
+        .slider-card .text-content {
             text-align: center;
-            margin-top: 1rem;
+            transition: text-align 0.4s ease;
         }
-
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 20px 20px;
-            color: #e0e0e0;
-            padding: 60px 0 30px;
+        .slider-card:hover .text-content {
+            text-align: left;
+        }
+        .slider-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        .slider-card .description {
+            opacity: 0;
+            max-height: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease 0.1s, max-height 0.4s ease, transform 0.3s ease 0.1s;
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #555;
             margin-top: 0;
         }
-        .footer-col h4 {
-            color: var(--background-color);
-        }
-        .footer-col p {
-            color: #b0c4de;
-        }
-        .footer-contact-item i, .footer-col a {
-            color: #b0c4de;
-            transition: color 0.3s ease;
-        }
-        .footer-col a:hover {
-            color: var(--background-color);
-        }
-        .footer-contact-item span {
-            color: #b0c4de;
-        }
-        .footer-social-links a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            margin-right: 10px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .footer-social-links a:hover {
-            background-color: white;
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1.5rem;
-            text-align: center;
-        }
-        .footer-bottom p {
-            color: #9ab;
-        }
-        .footer-legal-links a {
-            color: #9ab;
-            margin: 0 10px;
-            text-decoration: underline;
-        }
-        .footer-legal-links a:hover {
-            color: white;
-        }
-        
-        .xdulr-logo svg {
-            width: 24px;
-            height: 24px;
-            display: block;
+        .slider-card:hover .description {
+            opacity: 1;
+            max-height: 200px;
+            transform: translateY(0);
+            margin-top: 0.5rem;
         }
 
-        .logo-fill-dark {
-            fill: #b0c4de; /* A color that matches the footer text */
-            transition: fill 0.3s ease;
+        @keyframes slide {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
 
-        .xdulr-logo:hover .logo-fill-dark {
-            fill: #ffffff; /* A brighter color on hover */
+        #map-section {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        #map-section::before, #map-section::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        #map-section::before {
+            top: -1px;
+            background: linear-gradient(to bottom, var(--light-background-color) 30%, transparent);
+        }
+        #map-section::after {
+            bottom: -1px;
+            background: linear-gradient(to top, var(--light-background-color) 30%, transparent);
         }
 
 
-        /* Responsive Adjustments */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 1001; display: flex; justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+        .modal-content { background-color: white; padding: 2.5rem; border-radius: 1rem; width: 90%; max-width: 550px; position: relative; transform: scale(0.9); transition: transform 0.3s ease; text-align: left; }
+        .modal-overlay.active .modal-content { transform: scale(1); }
+        .modal-close { position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; color: #888; cursor: pointer; transition: color 0.3s ease; }
+        .modal-close:hover { color: #333; }
+        .form-input { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 1rem; font-family: 'Inter', sans-serif; }
+        .form-input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 2px rgba(10, 35, 66, 0.2); }
+        .form-status-message { display: none; padding: 1rem; border-radius: 8px; text-align: center; margin-top: 1rem; }
+        .success { background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; }
+        .error { background-color: #f8d7da; color: #842029; border: 1px solid #f5c2c7; }
+
+        footer { background-color: var(--primary-color); color: #e0e0e0; padding: 40px 0 30px; }
+        .footer-col h4 { color: var(--background-color); }
+        .footer-col p, .footer-col a, .footer-contact-item span { color: #b0c4de; }
+        .footer-col a:hover { color: white; }
+        .footer-social-links a { display: inline-flex; justify-content: center; align-items: center; width: 40px; height: 40px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.1); color: white; margin-right: 10px; transition: all 0.3s ease; }
+        .footer-social-links a:hover { background-color: white; color: var(--primary-color); transform: translateY(-2px); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 1.5rem; text-align: center; }
+        .footer-bottom p { color: #9ab; }
+        .footer-legal-links a { color: #9ab; margin: 0 10px; text-decoration: underline; }
+        .xdulr-logo svg { width: 24px; height: 24px; display: block; }
+        .logo-fill-dark { fill: #b0c4de; transition: fill 0.3s ease; }
+        .xdulr-logo:hover .logo-fill-dark { fill: #ffffff; }
+
         @media (max-width: 768px) {
-            body {
-            padding-top: 100px;
-            }
-            .navbar {
-                max-width: 90%;
-                border-radius: 1rem; /* Adjust rounding for mobile */
-                flex-direction: column; 
-                padding: 15px;
-                justify-content: center;
-            }
-            .nav-link-group {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-around;
-                width: 100%;
-                gap: 0;
-                margin-left: 0;
-                padding-top: 10px;
-            }
-            .logo {
-                position: relative;
-                left: auto;
-                top: auto;
-                transform: none;
-                padding-bottom: 0;
-                margin-top: 0;
-                margin-bottom: 0;
-                padding-left: 0;
-            }
-             .logo svg {
-                width: 40px;
-                height: 40px;
-             }
-             .logo-text {
-                font-size: 1rem;
-             }
-            .hero-card { 
-                padding: 120px 20px 80px;
-                border-radius: 1rem; /* Consistent rounding on mobile */
-            }
+            body { padding-top: 100px; }
+            .navbar { max-width: 90%; border-radius: 1rem; flex-direction: column; padding: 15px; justify-content: center; }
+            .nav-link-group { display: flex; flex-direction: row; justify-content: space-around; width: 100%; gap: 0; margin-left: 0; padding-top: 10px; }
+            .logo { position: relative; left: auto; top: auto; transform: none; padding-bottom: 0; margin: 0; padding-left: 0; }
+            .logo svg { width: 40px; height: 40px; }
+            .logo-text { font-size: 1rem; }
+            .hero-card { padding: 120px 20px 80px; }
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.1rem; }
-            .quote-section { margin-top: -40px; border-radius: 1rem; }
-            .quote-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .quote-image {
-                width: 200px;
-                margin: 0 auto;
-                padding-top: 2rem;
-            }
-            .quote-text {
-                padding: 2rem;
-            }
+            .quote-section { margin-top: -40px; }
+            .quote-content { flex-direction: column; text-align: center; }
+            .quote-image { width: 200px; margin: 0 auto; padding-top: 2rem; }
+            .quote-text { padding: 2rem; }
             .quote-content blockquote { font-size: 1.2rem; text-align: center; }
-            .quote-content .author { text-align: center; }
-            
-            .team-member-content, .team-member-content.image-right {
-                flex-direction: column;
-                text-align: center;
-            }
-            .team-member-image {
-                width: 250px;
-                margin: -60px auto 0;
-                align-self: center;
-            }
-            .team-member-content .team-member-image, .team-member-content.image-right .team-member-image {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .team-member-text {
-                text-align: center;
-                padding: 2rem;
-            }
-
-            .footer-col {
-                text-align: center;
-            }
-            .footer-col ul {
-                display: inline-block; 
-                text-align: left; 
-            }
-            .footer-contact-item {
-                justify-content: center; 
-            }
+            .team-member-content, .team-member-content.image-right { flex-direction: column; text-align: center; }
+            .team-member-image { width: 250px; margin: -60px auto 0; align-self: center; }
+            .team-member-content .team-member-image, .team-member-content.image-right .team-member-image { margin-left: auto; margin-right: auto; }
+            .team-member-text { text-align: center; padding: 2rem; }
         }
     </style>
 </head>
 <body>
-    <div id="background-animation-container"></div>
     <header>
         <div class="container">
-            <!-- Fixed, rounded nav bar with left logo and right icons -->
             <nav class="navbar">
-                
-                <!-- Left Logo (Now aligned to the far left) -->
                 <a href="#" class="logo" aria-label="Lakeshore Law Home">
-                    <svg viewBox="75 40 50 50" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <g fill="#2F4F4F">
-                                <rect x="80" y="45" width="10" height="40"></rect>
-                                <rect x="80" y="75" width="40" height="10"></rect>
-                            </g>
-                            <g fill="#708090">
-                                <rect x="110" y="45" width="10" height="40"></rect>
-                                <rect x="80" y="45" width="40" height="10"></rect>
-                            </g>
-                            <rect x="90" y="55" width="20" height="20" fill="#0A2342"></rect>
-                        </g>
-                    </svg>
+                    <svg viewBox="75 40 50 50" xmlns="http://www.w3.org/2000/svg"><g><g fill="#2F4F4F"><rect x="80" y="45" width="10" height="40"></rect><rect x="80" y="75" width="40" height="10"></rect></g><g fill="#708090"><rect x="110" y="45" width="10" height="40"></rect><rect x="80" y="45" width="40" height="10"></rect></g><rect x="90" y="55" width="20" height="20" fill="#0A2342"></rect></g></svg>
                     <span class="logo-text"><span class="logo-text-lakeshore">LAKESHORE</span><span class="logo-text-law">LAW</span></span>
                 </a>
-                
-                <!-- Right Links Group (Combines all icons into one ul) -->
                 <ul class="nav-link-group nav-links">
                     <li><a href="#home" title="Home"><i class="fas fa-home"></i></a></li>
-                    <li><a href="#services" title="Services"><i class="fas fa-gavel"></i></a></li>
-                    <li><a href="#blog" title="Blog"><i class="fas fa-feather-alt"></i></a></li>
-                    <li><a href="#testimonials" title="Feedback"><i class="fas fa-comment-dots"></i></a></li>
-                    <li><a href="#faq" title="FAQ"><i class="fas fa-question-circle"></i></a></li>
+                    <li><a href="#services" title="Our Solutions"><i class="fas fa-gavel"></i></a></li>
+                    <li><a href="#team" title="Our Team"><i class="fas fa-users"></i></a></li>
+                    <li><a href="#blog" title="Legal Insights"><i class="fas fa-feather-alt"></i></a></li>
+                    <li><a href="#contact" title="Contact Us"><i class="fas fa-envelope"></i></a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section with Rounded Card and GSAP Animation -->
         <section class="hero" id="home">
             <div class="hero-card">
-                <!-- Animated SVG Background -->
                 <svg class="hero-background-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-                    <defs>
-                        <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color: #2F4F4F; stop-opacity: 0.8" />
-                            <stop offset="100%" style="stop-color: #0A2342; stop-opacity: 0.9" />
-                        </linearGradient>
-                    </defs>
-                    <g fill="url(#wave-gradient)">
-                        <path d="M0,150 C200,50 400,250 600,150 S1000,50 1200,150 L1200,600 L0,600 Z" opacity="0.6">
-                            <animate attributeName="d" dur="15s" repeatCount="indefinite"
-                                values="M0,150 C200,50 400,250 600,150 S1000,50 1200,150 L1200,600 L0,600 Z;
-                                        M0,150 C200,250 400,50 600,150 S1000,250 1200,150 L1200,600 L0,600 Z;
-                                        M0,150 C200,50 400,250 600,150 S1000,50 1200,150 L1200,600 L0,600 Z" />
-                        </path>
-                        <path d="M0,300 C300,200 500,400 600,300 S900,200 1200,300 L1200,600 L0,600 Z" opacity="0.4">
-                             <animate attributeName="d" dur="20s" repeatCount="indefinite"
-                                values="M0,300 C300,200 500,400 600,300 S900,200 1200,300 L1200,600 L0,600 Z;
-                                        M0,300 C300,400 500,200 600,300 S900,400 1200,300 L1200,600 L0,600 Z;
-                                        M0,300 C300,200 500,400 600,300 S900,200 1200,300 L1200,600 L0,600 Z" />
-                        </path>
-                         <path d="M0,450 C400,550 800,350 1200,450 L1200,600 L0,600 Z" opacity="0.2">
-                             <animate attributeName="d" dur="25s" repeatCount="indefinite"
-                                values="M0,450 C400,550 800,350 1200,450 L1200,600 L0,600 Z;
-                                        M0,450 C400,350 800,550 1200,450 L1200,600 L0,600 Z;
-                                        M0,450 C400,550 800,350 1200,450 L1200,600 L0,600 Z" />
-                        </path>
-                    </g>
+                    <defs><linearGradient id="wave-gradient-final" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color: #2F4F4F; stop-opacity: 0.8" /><stop offset="100%" style="stop-color: #0A2342; stop-opacity: 0.9" /></linearGradient></defs>
+                    <g fill="url(#wave-gradient-final)"><path d="M0,150 C200,50 400,250 600,150 S1000,50 1200,150 L1200,600 L0,600 Z" opacity="0.6"><animate attributeName="d" dur="15s" repeatCount="indefinite" values="M0,150 C200,50 400,250 600,150 S1000,50 1200,150 L1200,600 L0,600 Z; M0,150 C200,250 400,50 600,150 S1000,250 1200,150 L1200,600 L0,600 Z; M0,150 C200,50 400,250 600,150 S1000,50 1200,150 L1200,600 L0,600 Z" /></path><path d="M0,300 C300,200 500,400 600,300 S900,200 1200,300 L1200,600 L0,600 Z" opacity="0.4"><animate attributeName="d" dur="20s" repeatCount="indefinite" values="M0,300 C300,200 500,400 600,300 S900,200 1200,300 L1200,600 L0,600 Z; M0,300 C300,400 500,200 600,300 S900,400 1200,300 L1200,600 L0,600 Z; M0,300 C300,200 500,400 600,300 S900,200 1200,300 L1200,600 L0,600 Z" /></path><path d="M0,450 C400,550 800,350 1200,450 L1200,600 L0,600 Z" opacity="0.2"><animate attributeName="d" dur="25s" repeatCount="indefinite" values="M0,450 C400,550 800,350 1200,450 L1200,600 L0,600 Z; M0,450 C400,350 800,550 1200,450 L1200,600 L0,600 Z; M0,450 C400,550 800,350 1200,450 L1200,600 L0,600 Z" /></path></g>
                 </svg>
-                <!-- Hero Content -->
                 <div class="container max-w-4xl mx-auto">
-                    <h1 class="mb-5 font-extrabold tracking-tight">Strategic Legal Solutions. <span class="text-white/90">Delivered with Purpose.</span></h1>
-                    <p class="mb-10 opacity-90">We believe that legal advice should be more than reactive — it should be strategic, proactive, and tailored to your goals. Our team is built to support your success.</p>
-                    <div id="open-modal-btn" class="btn">Get a Free Consultation</div>
+                    <h1 class="mb-5 font-extrabold tracking-tight">Strategic Legal Solutions <span class="text-white/90">Delivered with Purpose</span></h1>
+                    <p class="mb-10 opacity-90">We believe that legal advice should be more than reactive — it should be strategic, proactive, and tailored to your goals. Whether you are a startup navigating early-stage growth, a multinational managing complex cross-border transactions, or an individual facing a pivotal life moment, our team is built to support your success.</p>
+                    <div id="open-modal-btn" class="btn">Book Consultation</div>
                 </div>
             </div>
         </section>
-
-        <!-- Quote/About Section -->
+        
         <section class="quote-section">
             <div class="quote-content">
                 <div class="quote-image">
-                    <img src="arjuns2.png" 
-                         alt="Arjun Sekhon"
-                         onerror="this.onerror=null;this.src='https://placehold.co/300x450/EBF4FF/0A2342?text=Image+Not+Found';">
+                    <img src="arjuns2.png" alt="Arjun Sekhon, Managing Lawyer in Oakville" onerror="this.onerror=null;this.src='https://placehold.co/300x450/EBF4FF/0A2342?text=Image+Not+Found';">
                 </div>
                 <div class="quote-text">
-                    <blockquote class="font-serif">
-                        "Lakeshore Law was founded on a simple but powerful idea: legal services should empower, not encumber. We are a team of experienced lawyers, industry specialists, and strategic thinkers who bring a nuanced perspective to legal advisory."
-                    </blockquote>
-                    <div class="author">
-                        - Arjun Sekhon, <span>Managing Partner</span>
+                    <blockquote>"Lakeshore Law was founded on a simple but powerful idea: legal services should empower, not encumber. We are a team of experienced lawyers, industry specialists, and strategic thinkers who bring a nuanced perspective to legal advisory."</blockquote>
+                    <div class="author">- Arjun Sekhon, <span>Managing Lawyer</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 mt-12" id="about">
+            <div class="container max-w-5xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6 animate-on-scroll">Redefining Legal Partnership</h2>
+                <p class="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto mb-12 animate-on-scroll">At Lakeshore Law, we are a team of experienced lawyers, industry specialists, and strategic thinkers. Our backgrounds span top-tier law firms and in-house counsel roles, which allows us to understand your challenges from every angle and deliver solutions that are practical, efficient, and forward-looking. We are proud to contribute to our communities through pro bono work, mentorship, and advocacy.</p>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 animate-on-scroll flex items-center space-x-4"><div class="flex-shrink-0"><div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-primary-color"><i class="fas fa-bullseye text-xl"></i></div></div><div class="text-left"><h3 class="font-bold text-lg text-primary-color">Client-Centricity</h3><p class="text-gray-600 text-sm">Your goals drive our strategy. We listen, adapt, and deliver with your success in mind.</p></div></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 animate-on-scroll flex items-center space-x-4"><div class="flex-shrink-0"><div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-primary-color"><i class="fas fa-lightbulb text-xl"></i></div></div><div class="text-left"><h3 class="font-bold text-lg text-primary-color">Innovative Approach</h3><p class="text-gray-600 text-sm">We embrace change and evolve our services to meet the demands of a dynamic business environment.</p></div></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 animate-on-scroll flex items-center space-x-4"><div class="flex-shrink-0"><div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-primary-color"><i class="fas fa-sitemap text-xl"></i></div></div><div class="text-left"><h3 class="font-bold text-lg text-primary-color">Integrated Expertise</h3><p class="text-gray-600 text-sm">We work as one team across disciplines to provide you with unified and seamless support.</p></div></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 animate-on-scroll flex items-center space-x-4"><div class="flex-shrink-0"><div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-primary-color"><i class="fas fa-chart-line text-xl"></i></div></div><div class="text-left"><h3 class="font-bold text-lg text-primary-color">Commercial Awareness</h3><p class="text-gray-600 text-sm">We deliver advice that aligns with your strategic objectives, protecting your interests and promoting growth.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 section-alt" id="services">
+            <div class="container text-center">
+                <h2 class="text-4xl font-bold mb-12 animate-on-scroll">Our Solutions</h2>
+            </div>
+            <div class="slider-container">
+                <div class="slider-logo-hook">
+                    <svg viewBox="75 40 50 50" xmlns="http://www.w3.org/2000/svg"><g><g fill="#2F4F4F"><rect x="80" y="45" width="10" height="40"></rect><rect x="80" y="75" width="40" height="10"></rect></g><g fill="#708090"><rect x="110" y="45" width="10" height="40"></rect><rect x="80" y="45" width="40" height="10"></rect></g><rect x="90" y="55" width="20" height="20" fill="#0A2342"></rect></g></svg>
+                </div>
+                <div class="slider-track-wrapper">
+                    <div class="slider-track">
+                        <div class="slider-card">
+                            <i class="fas fa-briefcase"></i>
+                            <div class="text-content">
+                                <h3>Corporate & Commercial Law</h3>
+                                <p class="description">We provide strategic legal support to businesses at every stage of growth. Our services include incorporation, shareholder agreements, mergers and acquisitions, SaaS and IT contracts, and ongoing operational counsel.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-hard-hat"></i>
+                            <div class="text-content">
+                                <h3>Construction Law</h3>
+                                <p class="description">Our construction law practice offers end-to-end support across the lifecycle of a project. We advise owners, developers, and contractors on EPCM contracts, risk allocation, procurement, and dispute resolution.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="text-content">
+                                <h3>Criminal Law</h3>
+                                <p class="description">We provide robust defence for individuals facing criminal charges, from bail hearings to trial advocacy. Our approach is resolution-focused and grounded in strategic litigation experience.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-users"></i>
+                            <div class="text-content">
+                                <h3>Family Law</h3>
+                                <p class="description">Family law matters require both legal precision and emotional intelligence. We assist clients with divorce, separation, custody and access, parenting plans, and spousal support.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-balance-scale"></i>
+                            <div class="text-content">
+                                <h3>Civil Litigation</h3>
+                                <p class="description">Our litigation team handles disputes involving breach of contract, negligence, property damage, and more. We combine courtroom advocacy with strategic insight to resolve matters efficiently and effectively.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-file-signature"></i>
+                            <div class="text-content">
+                                <h3>Wills & Estates</h3>
+                                <p class="description">We offer comprehensive estate planning services, including wills, powers of attorney, trusts, and probate. We also assist with estate administration and disputes.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-briefcase"></i>
+                            <div class="text-content">
+                                <h3>Corporate & Commercial Law</h3>
+                                <p class="description">We provide strategic legal support to businesses at every stage of growth. Our services include incorporation, shareholder agreements, mergers and acquisitions, SaaS and IT contracts, and ongoing operational counsel.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-hard-hat"></i>
+                            <div class="text-content">
+                                <h3>Construction Law</h3>
+                                <p class="description">Our construction law practice offers end-to-end support across the lifecycle of a project. We advise owners, developers, and contractors on EPCM contracts, risk allocation, procurement, and dispute resolution.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="text-content">
+                                <h3>Criminal Law</h3>
+                                <p class="description">We provide robust defence for individuals facing criminal charges, from bail hearings to trial advocacy. Our approach is resolution-focused and grounded in strategic litigation experience.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-users"></i>
+                            <div class="text-content">
+                                <h3>Family Law</h3>
+                                <p class="description">Family law matters require both legal precision and emotional intelligence. We assist clients with divorce, separation, custody and access, parenting plans, and spousal support.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-balance-scale"></i>
+                            <div class="text-content">
+                                <h3>Civil Litigation</h3>
+                                <p class="description">Our litigation team handles disputes involving breach of contract, negligence, property damage, and more. We combine courtroom advocacy with strategic insight to resolve matters efficiently and effectively.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-file-signature"></i>
+                            <div class="text-content">
+                                <h3>Wills & Estates</h3>
+                                <p class="description">We offer comprehensive estate planning services, including wills, powers of attorney, trusts, and probate. We also assist with estate administration and disputes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-track reverse">
+                        <div class="slider-card">
+                            <i class="fas fa-passport"></i>
+                            <div class="text-content">
+                                <h3>Immigration Law</h3>
+                                <p class="description">Navigating Canada’s immigration system requires both legal expertise and strategic foresight. We assist with applications, appeals, and judicial reviews, helping individuals and families secure their status and plan for the future.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-user-tie"></i>
+                            <div class="text-content">
+                                <h3>Employment Law</h3>
+                                <p class="description">We advise both employees and employers on workplace rights and obligations. Our services include contract review, wrongful and constructive dismissal claims, workplace investigations, and mediation.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-home"></i>
+                            <div class="text-content">
+                                <h3>Landlord & Tenant Law</h3>
+                                <p class="description">We represent landlords and tenants in residential and commercial disputes, including evictions, lease violations, and rent recovery. Our approach emphasizes clarity in lease drafting and dispute resolution.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-receipt"></i>
+                            <div class="text-content">
+                                <h3>Small Claims Matters</h3>
+                                <p class="description">We offer efficient and cost-effective representation in Small Claims Court. Our services include document preparation, legal strategy, and courtroom advocacy for matters such as unpaid debts or property damage.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-comment-slash"></i>
+                            <div class="text-content">
+                                <h3>Defamation</h3>
+                                <p class="description">We assist individuals and businesses in addressing reputational harm caused by libel or slander. Our services include cease and desist letters, litigation, and strategic communication support.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-stamp"></i>
+                            <div class="text-content">
+                                <h3>Notarizations</h3>
+                                <p class="description">We offer prompt and reliable notarization and commissioning services for affidavits, statutory declarations, and other legal documents, ensuring your paperwork meets all legal requirements.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-passport"></i>
+                            <div class="text-content">
+                                <h3>Immigration Law</h3>
+                                <p class="description">Navigating Canada’s immigration system requires both legal expertise and strategic foresight. We assist with applications, appeals, and judicial reviews, helping individuals and families secure their status and plan for the future.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-user-tie"></i>
+                            <div class="text-content">
+                                <h3>Employment Law</h3>
+                                <p class="description">We advise both employees and employers on workplace rights and obligations. Our services include contract review, wrongful and constructive dismissal claims, workplace investigations, and mediation.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-home"></i>
+                            <div class="text-content">
+                                <h3>Landlord & Tenant Law</h3>
+                                <p class="description">We represent landlords and tenants in residential and commercial disputes, including evictions, lease violations, and rent recovery. Our approach emphasizes clarity in lease drafting and dispute resolution.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-receipt"></i>
+                            <div class="text-content">
+                                <h3>Small Claims Matters</h3>
+                                <p class="description">We offer efficient and cost-effective representation in Small Claims Court. Our services include document preparation, legal strategy, and courtroom advocacy for matters such as unpaid debts or property damage.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-comment-slash"></i>
+                            <div class="text-content">
+                                <h3>Defamation</h3>
+                                <p class="description">We assist individuals and businesses in addressing reputational harm caused by libel or slander. Our services include cease and desist letters, litigation, and strategic communication support.</p>
+                            </div>
+                        </div>
+                        <div class="slider-card">
+                            <i class="fas fa-stamp"></i>
+                            <div class="text-content">
+                                <h3>Notarizations</h3>
+                                <p class="description">We offer prompt and reliable notarization and commissioning services for affidavits, statutory declarations, and other legal documents, ensuring your paperwork meets all legal requirements.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="py-20" id="services">
-            <div class="container">
-                <h2 class="text-center text-4xl font-bold mb-4">Our Areas of Practice</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                    <div class="service-item">
-                        <i class="fas fa-briefcase text-4xl mb-4"></i>
-                        <h3 class="text-xl font-bold mb-3">Corporate & Commercial</h3>
-                        <p class="text-gray-600">M&A, general counsel, business incorporations, IT/Tech matters like SaaS and reseller agreements.</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-gavel text-4xl mb-4"></i>
-                        <h3 class="text-xl font-bold mb-3">Criminal Law</h3>
-                        <p class="text-gray-600">Comprehensive defense for various criminal charges, protecting your rights throughout the process.</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-users text-4xl mb-4"></i>
-                        <h3 class="text-xl font-bold mb-3">Family Law</h3>
-                        <p class="text-gray-600">Compassionate guidance through divorce, custody, and support matters, prioritizing your family's well-being.</p>
-                    </div>
-
-                    <div class="service-item">
-                        <i class="fas fa-balance-scale text-4xl mb-4"></i>
-                        <h3 class="text-xl font-bold mb-3">Civil Litigation</h3>
-                        <p class="text-gray-600">Expert representation in disputes between individuals and organizations to protect your interests.</p>
-                    </div>
-                     <div class="service-item">
-                        <i class="fas fa-users-cog text-4xl mb-4"></i>
-                        <h3 class="text-xl font-bold mb-3">Employment Law</h3>
-                        <p class="text-gray-600">Contract review, wrongful dismissal claims, settlement negotiations, and mediation.</p>
-                    </div>
-                    <div class="service-item">
-                        <i class="fas fa-plane-departure text-4xl mb-4"></i>
-                        <h3 class="text-xl font-bold mb-3">Immigration Law</h3>
-                        <p class="text-gray-600">Judicial review applications, and expert guidance on drafting and reviewing immigration applications.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Meet The Team Section -->
         <section class="py-20" id="team">
             <div class="container">
-                <h2 class="text-center text-4xl font-bold mb-12">Meet Our Legal Experts</h2>
-
-                <!-- Arjun Sekhon - Image Left -->
-                <div class="team-member-card">
-                    <div class="team-member-content">
-                        <div class="team-member-image">
-                            <!-- USE a transparent PNG here -->
-                            <img src="arjuns.png" 
-                                 alt="Portrait of ARJUN SEKHON"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=ARJUN+SEKHON';">
-                        </div>
-                        <div class="team-member-text">
-                            <h3 class="font-bold mb-1">ARJUN SEKHON</h3>
-                            <span class="title">Managing Partner</span>
-                            <p class="text-gray-600">Arjun specializes in corporate law and strategic litigation, bringing over 15 years of experience to the firm. He is dedicated to providing clients with innovative solutions and personalized legal strategies that drive success.</p>
-                            <a href="arjun-sekhon.html" class="text-blue-600 hover:text-blue-800 font-semibold mt-4 inline-block">Know More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Daniel Ibrahim - Image Right -->
-                <div class="team-member-card">
-                    <div class="team-member-content image-right">
-                        <div class="team-member-image">
-                             <!-- USE a transparent PNG here -->
-                            <img src="daniel.png" 
-                                 alt="Portrait of Daniel Ibrahim"
-                                 onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=DANIEL+IBRAHIM';">
-                        </div>
-                        <div class="team-member-text">
-                            <h3 class="font-bold mb-1">Daniel Ibrahim</h3>
-                            <span class="title">Associate Lawyer</span>
-                            <p class="text-gray-600">Daniel focuses on immigration and employment law, helping clients navigate complex legal landscapes with dedication and expertise. He is committed to advocating for his clients' rights and achieving the best possible outcomes.</p>
-                             <a href="daniel-ibrahim.html" class="text-blue-600 hover:text-blue-800 font-semibold mt-4 inline-block">Know More <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-
+                <h2 class="text-center text-4xl font-bold mb-12 animate-on-scroll">Meet our Lawyers</h2>
+                <div class="team-member-card animate-on-scroll"><div class="team-member-content"><div class="team-member-image"><img src="arjuns.png" alt="Arjun Sekhon, Managing Lawyer at our Oakville law firm" onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=ARJUN+SEKHON';"></div><div class="team-member-text"><h3 class="font-bold mb-1">Arjun Sekhon</h3><span class="title">Managing Lawyer</span><p class="text-gray-600">Arjun provides timely, practical advice in Criminal, Family, Employment, and Immigration law, drawing from his experience in courtroom and in-house counsel roles. As a General Counsel, he has guided companies on IP litigation and US expansion. Outside of law, he is an active volunteer and board member with community organizations.</p><a href="arjun-sekhon.html" class="text-blue-600 hover:text-blue-800 font-semibold mt-4 inline-block">Learn More About Arjun <i class="fas fa-arrow-right ml-1 text-sm"></i></a></div></div></div>
+                <div class="team-member-card animate-on-scroll"><div class="team-member-content image-right"><div class="team-member-image"><img src="daniel.png" alt="Daniel Ibrahim, Of Counsel at Lakeshore Law in Oakville" onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=DANIEL+IBRAHIM';"></div><div class="team-member-text"><h3 class="font-bold mb-1">Daniel Ibrahim</h3><span class="title">Of Counsel</span><p class="text-gray-600">Known for his meticulous preparation and strong courtroom presence, Daniel's practice is built around litigation in municipal law, construction disputes, and civil litigation. As “Of Counsel” at Lakeshore Law, Daniel provides high-level litigation support and legal insight, ensuring clients receive comprehensive, results-oriented representation while focusing on ethical and transparent practices.</p><a href="daniel-ibrahim.html" class="text-blue-600 hover:text-blue-800 font-semibold mt-4 inline-block">Learn More About Daniel <i class="fas fa-arrow-right ml-1 text-sm"></i></a></div></div></div>
             </div>
         </section>
 
-        <!-- Case Results Section -->
-        <section class="py-20" id="case-results">
+        <section class="py-20 section-alt" id="blog">
             <div class="container">
-                <h2 class="text-center text-4xl font-bold mb-12">Proven Success</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                    <div class="case-result-card">
-                        <div class="outcome">$2.1M Settlement</div>
-                        <h3 class="text-xl font-bold mb-2">Complex Corporate Litigation</h3>
-                        <p class="text-gray-600">Successfully negotiated a multi-million dollar settlement for our client in a complex shareholder dispute, avoiding a costly and lengthy trial.</p>
-                    </div>
-                    <div class="case-result-card">
-                        <div class="outcome">Acquittal</div>
-                        <h3 class="text-xl font-bold mb-2">High-Profile Criminal Defense</h3>
-                        <p class="text-gray-600">Secured a full acquittal for a client facing serious criminal charges after a thorough investigation and strategic defense presentation in court.</p>
-                    </div>
-                    <div class="case-result-card">
-                        <div class="outcome">Favorable Judgment</div>
-                        <h3 class="text-xl font-bold mb-2">Real Estate Dispute</h3>
-                        <p class="text-gray-600">Obtained a favorable judgment in a property dispute, ensuring our client's rights were protected and their investment secured.</p>
+                <h2 class="text-center text-4xl font-bold mb-12 animate-on-scroll">Perspectives from Our Lawyers</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="blog-post-card animate-on-scroll"><h3 class="text-2xl font-bold mb-3"><a href="https://www.linkedin.com/pulse/understanding-p3-projects-arjun-sekhon/" target="_blank">A Guide to P3 Projects</a></h3><p class="text-gray-600 mb-4">Arjun Sekhon provides a clear overview of Public-Private Partnerships, explaining what they are and how they function in today's complex world.</p><a href="https://www.linkedin.com/pulse/understanding-p3-projects-arjun-sekhon/" target="_blank" class="read-more mt-auto">Read the Article <i class="fas fa-arrow-right ml-1 text-sm"></i></a></div>
+                    <div class="blog-post-card animate-on-scroll"><h3 class="text-2xl font-bold mb-3"><a href="https://medium.com/law-school-life-and-beyond/ncaas-the-fab-five-79772a16ea36" target="_blank">The NCAA's Fab Five & The Law</a></h3><p class="text-gray-600 mb-4">Arjun Sekhon examines the legal story behind the famous NCAA case and discusses its long-term impact on the rights of college athletes.</p><a href="https://medium.com/law-school-life-and-beyond/ncaas-the-fab-five-79772a16ea36" target="_blank" class="read-more mt-auto">Read the Article <i class="fas fa-arrow-right ml-1 text-sm"></i></a></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 text-center">
+            <div class="container max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-4 animate-on-scroll">Let’s Build Something Exceptional Together</h2>
+                <p class="text-xl text-gray-600 mb-10 animate-on-scroll">Contact us today to learn how we can support your legal needs with clarity, agility, and impact. Our initial consultation is always confidential and without obligation.</p>
+                <div id="open-modal-btn-2" class="btn animate-on-scroll">Schedule Your Consultation</div>
+            </div>
+        </section>
+
+        <section id="map-section">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.484732127113!2d-79.66779342385108!3d43.45039237111245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b5d0df3f02759%3A0x3335555d49110518!2s277%20Lakeshore%20Rd%20E%20%23408%2C%20Oakville%2C%20ON%20L6J%206J3!5e0!3m2!1sen!2sca!4v1728163690022!5m2!1sen!2sca" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                class="absolute top-0 left-0 w-full h-full"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="relative z-10 h-full flex flex-col justify-start items-center text-center pt-12">
+                <div class="flex items-center gap-4 bg-black/20 backdrop-blur-sm p-4 rounded-lg">
+                    <svg viewBox="75 40 50 50" class="h-16 w-16" xmlns="http://www.w3.org/2000/svg"><g><g fill="#2F4F4F"><rect x="80" y="45" width="10" height="40"></rect><rect x="80" y="75" width="40" height="10"></rect></g><g fill="#708090"><rect x="110" y="45" width="10" height="40"></rect><rect x="80" y="45" width="40" height="10"></rect></g><rect x="90" y="55" width="20" height="20" fill="#0A2342"></rect></g></svg>
+                    <div class="text-5xl font-black tracking-wider text-white">
+                        <span class="font-medium" style="color: #2F4F4F;">LAKESHORE</span><span style="color: #0A2342;">LAW</span>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Legal Insights (Blog) Section -->
-        <section class="py-20" id="blog">
-            <div class="container">
-                <h2 class="text-center text-4xl font-bold mb-12">Legal Insights</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-                    <div class="blog-post-card">
-                        <img src="https://placehold.co/600x400/e0e7ff/4338ca?text=Insight" alt="Blog post image">
-                        <span class="category">Real Estate</span>
-                        <h3 class="text-xl font-bold mb-3"><a href="#" class="hover:text-blue-800">5 Things to Know Before Buying a New Build Home</a></h3>
-                        <p class="text-gray-600">Navigating the complexities of new construction contracts can be daunting. Here's what you need to look out for.</p>
+        <section id="contact" class="py-20 text-center">
+            <div class="container mx-auto">
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg">
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-map-marker-alt text-3xl mb-3 text-primary-color"></i>
+                        <h3 class="text-xl font-bold mb-1">Address</h3>
+                        <p class="text-gray-600">277 Lakeshore Rd E, Suite 408, Oakville, ON</p>
                     </div>
-                     <div class="blog-post-card">
-                        <img src="https://placehold.co/600x400/d1fae5/047857?text=Insight" alt="Blog post image">
-                        <span class="category" style="background-color:#d1fae5; color:#047857;">Criminal Law</span>
-                        <h3 class="text-xl font-bold mb-3"><a href="#" class="hover:text-blue-800">Understanding Your Rights When Questioned</a></h3>
-                        <p class="text-gray-600">Knowing your rights is the first line of defense. We break down the crucial steps to take if you are ever detained.</p>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-phone text-3xl mb-3 text-primary-color"></i>
+                         <h3 class="text-xl font-bold mb-1">Phone</h3>
+                        <p class="text-gray-600">(647) 982-7714</p>
                     </div>
-                     <div class="blog-post-card">
-                        <img src="https://placehold.co/600x400/fee2e2/b91c1c?text=Insight" alt="Blog post image">
-                        <span class="category" style="background-color:#fee2e2; color:#b91c1c;">Corporate Law</span>
-                        <h3 class="text-xl font-bold mb-3"><a href="#" class="hover:text-blue-800">Is Your Business Structured for Success?</a></h3>
-                        <p class="text-gray-600">From sole proprietorship to incorporation, choosing the right business structure is a critical decision. We explore the options.</p>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-envelope text-3xl mb-3 text-primary-color"></i>
+                         <h3 class="text-xl font-bold mb-1">Email</h3>
+                        <p class="text-gray-600">info@lakeshore.law</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <section class="py-20" id="testimonials">
-            <div class="container">
-                <h2 class="text-center text-4xl font-bold mb-12">Client Feedback</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="testimonial-item shadow-md">
-                        <img src="https://placehold.co/150x150/0A2342/FFFFFF?text=N" alt="Photo of client Nava">
-                        <div class="text-yellow-500 mb-3 text-xl">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="italic text-gray-700 mb-4">"Exactly what I was looking for! The team at Lakeshore Law provided incredible service and clear guidance on my case. Highly recommend!"</p>
-                        <div class="font-bold text-gray-900">- Nava</div>
-                    </div>
-                    <div class="testimonial-item shadow-md">
-                        <img src="https://placehold.co/150x150/2F4F4F/FFFFFF?text=N" alt="Photo of client Nora">
-                        <div class="text-yellow-500 mb-3 text-xl">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="italic text-gray-700 mb-4">"Above and beyond the standard. Lakeshore Law is truly a class act. They went above and beyond to protect my interests."</p>
-                        <div class="font-bold text-gray-900">- Nora</div>
-                    </div>
-                    <div class="testimonial-item shadow-md">
-                        <img src="https://placehold.co/150x150/708090/FFFFFF?text=J" alt="Photo of client Jake">
-                        <div class="text-yellow-500 mb-3 text-xl">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p class="italic text-gray-700 mb-4">"Highly professional and efficient. I am so glad I chose Lakeshore Law. They handled everything with precision and care."</p>
-                        <div class="font-bold text-gray-900">- Jake</div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- FAQ Section -->
-        <section class="py-20" id="faq">
-            <div class="container max-w-4xl mx-auto">
-                <div class="text-center mb-10">
-                    <i class="fas fa-question-circle text-4xl text-gray-800 mb-3"></i>
-                    <h2 class="text-4xl font-bold">Have Questions</h2>
-                    <p class="text-gray-600 mt-2">Our team is here to help. Here are some of our most common questions.</p>
-                </div>
-                
-                <div class="faq-list bg-white p-6 shadow-lg border border-gray-100">
-                    <div class="faq-item border-b border-gray-200 last:border-b-0 py-4 cursor-pointer" onclick="this.classList.toggle('active')">
-                        <div class="flex justify-between items-center font-semibold text-lg text-gray-800 faq-question">
-                            How do I book a consultation?
-                            <i class="fas fa-plus transition-transform duration-300"></i>
-                        </div>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 pt-0 text-gray-600">
-                            <p class="pt-3">You can book a consultation by filling out the contact form on our website or by calling our office directly at **(905) 956-0539**.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item border-b border-gray-200 last:border-b-0 py-4 cursor-pointer" onclick="this.classList.toggle('active')">
-                        <div class="flex justify-between items-center font-semibold text-lg text-gray-800 faq-question">
-                            What is your fee structure?
-                            <i class="fas fa-plus transition-transform duration-300"></i>
-                        </div>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 pt-0 text-gray-600">
-                            <p class="pt-3">Our fee structure varies depending on the type and complexity of the case. We will discuss all fees and payment options with you during your initial consultation.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item border-b border-gray-200 last:border-b-0 py-4 cursor-pointer" onclick="this.classList.toggle('active')">
-                        <div class="flex justify-between items-center font-semibold text-lg text-gray-800 faq-question">
-                            How long will it take to resolve my case?
-                            <i class="fas fa-plus transition-transform duration-300"></i>
-                        </div>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 pt-0 text-gray-600">
-                            <p class="pt-3">The timeline for a case depends on many factors, including the type of legal matter, the opposing party's actions, and court schedules. We will provide you with a realistic timeline during our initial consultation and keep you updated throughout the process.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item border-b border-gray-200 last:border-b-0 py-4 cursor-pointer" onclick="this.classList.toggle('active')">
-                        <div class="flex justify-between items-center font-semibold text-lg text-gray-800 faq-question">
-                            Can I request specific lawyers or partners?
-                            <i class="fas fa-plus transition-transform duration-300"></i>
-                        </div>
-                        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 pt-0 text-gray-600">
-                            <p class="pt-3">Yes, you can. We will do our best to match you with the lawyer who has the most relevant expertise for your specific case and who can meet your needs.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Footer Section with Map -->
-        <section class="py-20 text-center" id="contact">
-            <div class="container max-w-6xl mx-auto">
-                 <div class="grid md:grid-cols-2 gap-10 items-center">
-                    <div class="text-left">
-                        <h2 class="text-4xl font-bold mb-4">Ready to Discuss Your Case?</h2>
-                        <p class="text-xl text-gray-600 mb-10">Let's talk about how Lakeshore Law can help you achieve your goals. Our initial consultation is always confidential and without obligation.</p>
-                        <div id="open-modal-btn-2" class="btn">Schedule Your Consultation</div>
-                    </div>
-                    <div>
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2894.484732127113!2d-79.66779342385108!3d43.45039237111245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b5d0df3f02759%3A0x3335555d49110518!2s277%20Lakeshore%20Rd%20E%20%23408%2C%20Oakville%2C%20ON%20L6J%206J3!5e0!3m2!1sen!2sca!4v1728163690022!5m2!1sen!2sca" 
-                            width="100%" 
-                            height="350" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy"
-                            class="rounded-lg shadow-lg"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
-                <div class="footer-col">
-                    <h4 class="text-xl font-bold mb-5">About Lakeshore Law</h4>
-                    <p class="mb-5">A modern law firm dedicated to providing strategic, proactive, and client-focused legal services that deliver results.</p>
-                    <div class="footer-social-links">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <div class="bg-white/10 p-12 rounded-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="footer-col">
+                        <h4 class="text-xl font-bold mb-5">Lakeshore Law</h4>
+                        <p class="mb-5">We combine deep legal expertise with industry insight to help you anticipate risk, seize opportunity, and move forward with confidence.</p>
+                        <div class="footer-social-links">
+                            <a href="https://www.linkedin.com/in/arjuncsekhon/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.instagram.com/lakeshore.law/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="footer-col">
-                    <h4 class="text-xl font-bold mb-5">Quick Links</h4>
-                    <ul>
-                        <li class="mb-2"><a href="#home">Home</a></li>
-                        <li class="mb-2"><a href="#services">Practice Areas</a></li>
-                        <li class="mb-2"><a href="#blog">Legal Insights</a></li>
-                        <li class="mb-2"><a href="#testimonials">Client Stories</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="text-xl font-bold mb-5">Practice Areas</h4>
-                     <ul>
-                        <li class="mb-2"><a href="#services">Corporate Law</a></li>
-                        <li class="mb-2"><a href="#services">Criminal Law</a></li>
-                        <li class="mb-2"><a href="#services">Civil Litigation</a></li>
-                        <li><a href="#services">Real Estate Law</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="text-xl font-bold mb-5">Contact Info</h4>
-                    <div class="flex items-center mb-3 footer-contact-item">
-                        <i class="fas fa-phone text-lg w-6 text-center"></i>
-                        <span>(905) 956-0539</span>
+                    <div class="footer-col">
+                        <h4 class="text-xl font-bold mb-5">Explore</h4>
+                        <ul>
+                            <li class="mb-2"><a href="#home">Home</a></li>
+                            <li class="mb-2"><a href="#about">Our Firm</a></li>
+                            <li class="mb-2"><a href="#services">Our Solutions</a></li>
+                            <li class="mb-2"><a href="#team">Our People</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
                     </div>
-                    <div class="flex items-start mb-3 footer-contact-item">
-                        <i class="fas fa-map-marker-alt text-lg w-6 text-center mt-1"></i>
-                        <span>277 Lakeshore Rd E, Suite 408, Oakville, ON L6J 6J3</span>
+                    <div class="footer-col">
+                        <h4 class="text-xl font-bold mb-5">Our Focus</h4>
+                        <ul>
+                            <li class="mb-2"><a href="#services">Corporate & Commercial Law</a></li>
+                            <li class="mb-2"><a href="#services">Criminal Law</a></li>
+                            <li class="mb-2"><a href="#services">Family Law</a></li>
+                            <li><a href="#services">Civil Litigation</a></li>
+                        </ul>
                     </div>
-                    <div class="flex items-center mb-3 footer-contact-item">
-                        <i class="fas fa-envelope text-lg w-6 text-center"></i>
-                        <span>support@lakeshore.law</span>
-                    </div>
-                     <div class="flex items-center mb-3 footer-contact-item">
-                        <i class="fas fa-clock text-lg w-6 text-center"></i>
-                        <span>Mon-Fri: 9am - 5pm</span>
-                    </div>
-                </div>
+                </div> 
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom mt-8">
                 <p class="text-sm mb-4">&copy; 2025 Lakeshore Law. All Rights Reserved.</p>
-                <div class="footer-legal-links">
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                    <a href="disclaimer.html">Legal Disclaimer</a>
-                </div>
+                <div class="footer-legal-links"><a href="privacy-policy.html">Privacy Policy</a><a href="disclaimer.html">Legal Disclaimer</a></div>
                 <div class="powered-by-container mt-6 flex justify-center items-center gap-2">
                     <p class="text-sm text-[#9ab]">Powered by</p>
                     <a href="https://xdulr.com" target="_blank" rel="noopener noreferrer" class="xdulr-logo">
-                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                            <title>XDULR Logo</title>
-                            <polygon class="logo-fill-dark" points="0,0 95,0 0,95" />
-                            <polygon class="logo-fill-dark" points="100,5 100,100 5,100" />
-                            <g transform="rotate(45 50 50) scale(0.8) translate(12.5, 12.5)">
-                               <path d="M 50 10 C 60 40, 60 40, 90 50 C 60 60, 60 60, 50 90 C 40 60, 40 60, 10 50 C 40 40, 40 40, 50 10 Z" fill="white" />
-                            </g>
-                        </svg>
+                        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><title>XDULR Logo</title><polygon class="logo-fill-dark" points="0,0 95,0 0,95" /><polygon class="logo-fill-dark" points="100,5 100,100 5,100" /><g transform="rotate(45 50 50) scale(0.8) translate(12.5, 12.5)"><path d="M 50 10 C 60 40, 60 40, 90 50 C 60 60, 60 60, 50 90 C 40 60, 40 60, 10 50 C 40 40, 40 40, 50 10 Z" fill="white" /></g></svg>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Contact Modal -->
     <div id="contact-modal" class="modal-overlay">
-        <div class="modal-content">
+        <div class="modal-content" style="text-align: center;">
             <i id="close-modal-btn" class="fas fa-times modal-close"></i>
-            <h3 class="text-2xl font-bold mb-4 text-center">Request a Consultation</h3>
-            <!-- UPDATE: Add action URL and method="POST" -->
+            <h3 class="text-2xl font-bold mb-4">Book a Consultation</h3>
+            <p class="text-gray-600 mb-4">Initial consultations are $200 + HST. Payment can be sent via EMT to arjun@sekhonlaw.legal.</p>
             <form id="contact-form" action="https://formspree.io/f/mnngzkag" method="POST">
                 <input type="text" name="name" placeholder="Full Name" class="form-input" required>
                 <input type="email" name="email" placeholder="Email Address" class="form-input" required>
                 <input type="tel" name="phone" placeholder="Phone Number" class="form-input">
-                <textarea name="message" placeholder="Briefly describe your case..." class="form-input" rows="4" required></textarea>
+                <textarea name="message" placeholder="Briefly describe your legal matter..." class="form-input" rows="4" required></textarea>
                 <button type="submit" class="btn w-full">Submit Request</button>
             </form>
-            <div id="form-success-message" class="form-status-message success">
-                <strong>Thank you!</strong> Your request has been sent. We will contact you shortly.
-            </div>
-            <div id="form-error-message" class="form-status-message error">
-                <strong>Oops!</strong> Something went wrong. Please try again later.
-            </div>
+            <div id="form-success-message" class="form-status-message success"><strong>Thank you!</strong> Your request has been sent. We will contact you shortly.</div>
+            <div id="form-error-message" class="form-status-message error"><strong>Oops!</strong> Something went wrong. Please try again later.</div>
         </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Functionality for FAQ accordion
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const answer = item.querySelector('.faq-answer');
-                const icon = item.querySelector('.fa-plus');
-                answer.style.maxHeight = '0'; 
-                item.addEventListener('click', () => {
-                    const isActive = item.classList.toggle('active');
-                    if (isActive) {
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                        icon.style.transform = 'rotate(45deg)';
-                    } else {
-                        answer.style.maxHeight = '0';
-                        icon.style.transform = 'rotate(0deg)';
-                    }
-                });
-            });
+            gsap.registerPlugin(ScrollTrigger);
 
-            // GSAP Animations
             gsap.to(".hero-card", { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" });
             gsap.from(".hero-card h1, .hero-card p, .hero-card .btn", { y: 30, opacity: 0, duration: 0.8, ease: "power3.out", stagger: 0.2, delay: 0.5 });
 
-            // Background floating icons animation
-            const container = document.getElementById('background-animation-container');
-            const icons = [
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M22.28 12.83l-1.42-1.42-7.07 7.07 1.42 1.42L22.28 12.83zM3.23 12.23L12 3.46l4.24 4.24-8.48 8.49H3.23v-4.54zM12.71 2.75L2 13.46V18h4.54l10.71-10.71-4.54-4.54z"/></svg>',
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2.5-3.5h5v-2h-5v2zm0-4h5v-2h-5v2zm0-4h5v-2h-5v2z"/></svg>',
-                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M10 20h4V4h-4v16zm-6 0h4v-8H4v8zM16 8v12h4V8h-4z"/></svg>'
-            ];
-            const numIcons = 20;
-            for (let i = 0; i < numIcons; i++) {
-                const icon = document.createElement('div');
-                icon.classList.add('animated-icon');
-                icon.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-                container.appendChild(icon);
-                gsap.set(icon, { x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight, scale: Math.random() * 0.5 + 0.2, opacity: 0 });
-                gsap.to(icon, { duration: Math.random() * 20 + 15, x: "+=" + (Math.random() * 400 - 200), y: "+=" + (Math.random() * 400 - 200), rotation: Math.random() * 360, opacity: Math.random() * 0.1 + 0.05, repeat: -1, yoyo: true, ease: "sine.inOut", delay: Math.random() * 2 });
-            }
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(el => {
+                gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.8,
+                    ease: "power3.out"
+                });
+            });
 
-            // Contact Modal Functionality
-            const modal = document.getElementById('contact-modal');
+            // Contact Modal
+            const contactModal = document.getElementById('contact-modal');
             const openModalBtn = document.getElementById('open-modal-btn');
             const openModalBtn2 = document.getElementById('open-modal-btn-2');
             const closeModalBtn = document.getElementById('close-modal-btn');
-            const contactForm = document.getElementById('contact-form');
-            const successMessage = document.getElementById('form-success-message');
-            const errorMessage = document.getElementById('form-error-message');
-
-            const openModal = () => modal.classList.add('active');
-            const closeModal = () => modal.classList.remove('active');
-
-            openModalBtn.addEventListener('click', openModal);
-            openModalBtn2.addEventListener('click', openModal);
-            closeModalBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal();
-                }
-            });
+            const openContactModal = () => contactModal.classList.add('active');
+            const closeContactModal = () => contactModal.classList.remove('active');
+            if(openModalBtn) openModalBtn.addEventListener('click', openContactModal);
+            if(openModalBtn2) openModalBtn2.addEventListener('click', openContactModal);
+            if(closeModalBtn) closeModalBtn.addEventListener('click', closeContactModal);
+            contactModal.addEventListener('click', (e) => { if (e.target === contactModal) closeContactModal(); });
             
+            const contactForm = document.getElementById('contact-form');
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const form = e.target;
                 const data = new FormData(form);
-                
-                fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                }).then(response => {
+                const successMessage = document.getElementById('form-success-message');
+                const errorMessage = document.getElementById('form-error-message');
+                fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } }).then(response => {
                     contactForm.style.display = 'none';
                     if (response.ok) {
                         successMessage.style.display = 'block';
                         errorMessage.style.display = 'none';
-                        setTimeout(() => {
-                            form.reset();
-                            contactForm.style.display = 'block';
-                            successMessage.style.display = 'none';
-                            closeModal();
-                        }, 4000);
+                        setTimeout(() => { closeContactModal(); form.reset(); contactForm.style.display = 'block'; successMessage.style.display = 'none'; }, 4000);
                     } else {
-                        errorMessage.style.display = 'block';
-                        successMessage.style.display = 'none';
-                         setTimeout(() => {
-                            contactForm.style.display = 'block';
-                            errorMessage.style.display = 'none';
-                        }, 5000);
+                         errorMessage.style.display = 'block';
+                         successMessage.style.display = 'none';
+                         setTimeout(() => { contactForm.style.display = 'block'; errorMessage.style.display = 'none'; }, 5000);
                     }
                 }).catch(error => {
                     contactForm.style.display = 'none';
                     errorMessage.style.display = 'block';
                     successMessage.style.display = 'none';
-                     setTimeout(() => {
-                        contactForm.style.display = 'block';
-                        errorMessage.style.display = 'none';
-                    }, 5000);
+                    setTimeout(() => { contactForm.style.display = 'block'; errorMessage.style.display = 'none'; }, 5000);
                 });
             });
         });
     </script>
-
 </body>
 </html>
 
