@@ -102,6 +102,16 @@
         .xdulr-logo svg { width: 24px; height: 24px; display: block; }
         .logo-fill-dark { fill: #b0c4de; transition: fill 0.3s ease; }
         .xdulr-logo:hover .logo-fill-dark { fill: #ffffff; }
+
+        /* Mobile Navigation Fix */
+        @media (max-width: 768px) {
+            body { padding-top: 100px; }
+            .navbar { max-width: 90%; border-radius: 1rem; flex-direction: column; padding: 15px; justify-content: center; }
+            .nav-link-group { display: flex; flex-direction: row; justify-content: space-around; width: 100%; gap: 0; margin-left: 0; padding-top: 10px; }
+            .logo { position: relative; left: auto; top: auto; transform: none; padding-bottom: 0; margin: 0; padding-left: 0; }
+            .logo svg { width: 40px; height: 40px; }
+            .logo-text { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
