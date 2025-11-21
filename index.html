@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lakeshore Law | Top Law Firm in Oakville | Your Legal Partner</title>
-    <meta name="description" content="Discover Lakeshore Law, a top law firm in Oakville. Our skilled lawyers offer expert guidance in personal and business law, providing strategic solutions with a client-first approach.">
-    <meta name="keywords" content="top law firm Oakville, Oakville lawyers, legal partner Oakville, business law, family law, criminal defense Oakville">
+    <title>Lakeshore Law | Experienced Lawyers in Oakville | Your Legal Partner</title>
+    <meta name="description" content="Discover Lakeshore Law, an experienced law firm in Oakville. Our skilled lawyers offer expert guidance in personal and business law, providing strategic solutions with a client-first approach.">
+    <meta name="keywords" content="law firm Oakville, Oakville lawyers, legal partner Oakville, business law, family law, criminal defense Oakville">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display.swap" rel="stylesheet">
@@ -95,117 +95,44 @@
         .team-member-text h3 { font-size: 1.75rem; }
         .team-member-text .title { font-weight: 500; color: var(--primary-color); margin-bottom: 1rem; display: block; }
         
-        /* Slider section styles */
-        .slider-container {
-            display: flex;
-            align-items: center;
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            padding: 2rem 0;
+        /* Updated Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
         }
-        .slider-logo-hook {
-            position: absolute;
-            left: 0;
-            z-index: 10;
-            background-color: var(--section-bg-alt);
-            padding-right: 20px;
-        }
-        .slider-logo-hook svg {
-            width: 60px;
-            height: 60px;
-        }
-        .slider-track-wrapper {
-            padding-left: 80px; /* Space for the logo */
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .slider-track {
-            display: flex;
-            width: fit-content;
-            animation: slide 60s linear infinite;
-        }
-        .slider-track.reverse {
-            animation-direction: reverse;
-        }
-        .slider-container:hover .slider-track {
-            animation-play-state: paused;
-        }
-        .slider-card {
-            width: 220px;
-            height: 220px;
-            flex-shrink: 0;
-            margin-right: 1.5rem;
+        .service-card {
             background-color: white;
             border-radius: 1rem;
             border: 1px solid #e2e8f0;
+            padding: 2rem;
+            text-align: left;
+            transition: all 0.3s ease;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 1.5rem;
-            position: relative;
-            z-index: 1;
-            overflow: hidden;
-            transition: all 0.4s ease;
         }
-        .slider-card:hover {
-            width: 400px;
-            height: 220px;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: flex-start;
+        .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            z-index: 100;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
         }
-        .slider-card i {
+        .service-card i {
             font-size: 2.5rem;
             color: var(--primary-color);
-            margin-bottom: 0.75rem;
-            transition: all 0.4s ease;
+            margin-bottom: 1.5rem;
         }
-        .slider-card:hover i {
-            font-size: 2.2rem;
-            margin-bottom: 0;
-            margin-right: 1.5rem;
-            margin-top: 0.25rem;
-        }
-        .slider-card .text-content {
-            text-align: center;
-            transition: text-align 0.4s ease;
-        }
-        .slider-card:hover .text-content {
-            text-align: left;
-        }
-        .slider-card h3 {
-            font-size: 1.1rem;
+        .service-card h3 {
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--secondary-color);
+            margin-bottom: 1rem;
         }
-        .slider-card .description {
-            opacity: 0;
-            max-height: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease 0.1s, max-height 0.4s ease, transform 0.3s ease 0.1s;
-            text-align: left;
-            font-size: 0.9rem;
-            line-height: 1.5;
+        .service-card p {
+            font-size: 0.95rem;
             color: #555;
-            margin-top: 0;
-        }
-        .slider-card:hover .description {
-            opacity: 1;
-            max-height: 200px;
-            transform: translateY(0);
-            margin-top: 0.5rem;
-        }
-
-        @keyframes slide {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
+            line-height: 1.6;
         }
 
         #map-section {
@@ -276,6 +203,7 @@
             .team-member-image { width: 250px; margin: -60px auto 0; align-self: center; }
             .team-member-content .team-member-image, .team-member-content.image-right .team-member-image { margin-left: auto; margin-right: auto; }
             .team-member-text { text-align: center; padding: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -339,185 +267,72 @@
         </section>
 
         <section class="py-20 section-alt" id="services">
-            <div class="container text-center">
-                <h2 class="text-4xl font-bold mb-12 animate-on-scroll">Our Solutions</h2>
-            </div>
-            <div class="slider-container">
-                <div class="slider-logo-hook">
-                    <svg viewBox="75 40 50 50" xmlns="http://www.w3.org/2000/svg"><g><g fill="#2F4F4F"><rect x="80" y="45" width="10" height="40"></rect><rect x="80" y="75" width="40" height="10"></rect></g><g fill="#708090"><rect x="110" y="45" width="10" height="40"></rect><rect x="80" y="45" width="40" height="10"></rect></g><rect x="90" y="55" width="20" height="20" fill="#0A2342"></rect></g></svg>
+            <div class="container">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4 animate-on-scroll">Our Solutions</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto animate-on-scroll">Comprehensive legal services tailored to your needs.</p>
                 </div>
-                <div class="slider-track-wrapper">
-                    <div class="slider-track">
-                        <div class="slider-card">
-                            <i class="fas fa-briefcase"></i>
-                            <div class="text-content">
-                                <h3>Corporate & Commercial Law</h3>
-                                <p class="description">We provide strategic legal support to businesses at every stage of growth. Our services include incorporation, shareholder agreements, mergers and acquisitions, SaaS and IT contracts, and ongoing operational counsel.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-hard-hat"></i>
-                            <div class="text-content">
-                                <h3>Construction Law</h3>
-                                <p class="description">Our construction law practice offers end-to-end support across the lifecycle of a project. We advise owners, developers, and contractors on EPCM contracts, risk allocation, procurement, and dispute resolution.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-shield-alt"></i>
-                            <div class="text-content">
-                                <h3>Criminal Law</h3>
-                                <p class="description">We provide robust defence for individuals facing criminal charges, from bail hearings to trial advocacy. Our approach is resolution-focused and grounded in strategic litigation experience.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-users"></i>
-                            <div class="text-content">
-                                <h3>Family Law</h3>
-                                <p class="description">Family law matters require both legal precision and emotional intelligence. We assist clients with divorce, separation, custody and access, parenting plans, and spousal support.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-balance-scale"></i>
-                            <div class="text-content">
-                                <h3>Civil Litigation</h3>
-                                <p class="description">Our litigation team handles disputes involving breach of contract, negligence, property damage, and more. We combine courtroom advocacy with strategic insight to resolve matters efficiently and effectively.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-file-signature"></i>
-                            <div class="text-content">
-                                <h3>Wills & Estates</h3>
-                                <p class="description">We offer comprehensive estate planning services, including wills, powers of attorney, trusts, and probate. We also assist with estate administration and disputes.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-briefcase"></i>
-                            <div class="text-content">
-                                <h3>Corporate & Commercial Law</h3>
-                                <p class="description">We provide strategic legal support to businesses at every stage of growth. Our services include incorporation, shareholder agreements, mergers and acquisitions, SaaS and IT contracts, and ongoing operational counsel.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-hard-hat"></i>
-                            <div class="text-content">
-                                <h3>Construction Law</h3>
-                                <p class="description">Our construction law practice offers end-to-end support across the lifecycle of a project. We advise owners, developers, and contractors on EPCM contracts, risk allocation, procurement, and dispute resolution.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-shield-alt"></i>
-                            <div class="text-content">
-                                <h3>Criminal Law</h3>
-                                <p class="description">We provide robust defence for individuals facing criminal charges, from bail hearings to trial advocacy. Our approach is resolution-focused and grounded in strategic litigation experience.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-users"></i>
-                            <div class="text-content">
-                                <h3>Family Law</h3>
-                                <p class="description">Family law matters require both legal precision and emotional intelligence. We assist clients with divorce, separation, custody and access, parenting plans, and spousal support.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-balance-scale"></i>
-                            <div class="text-content">
-                                <h3>Civil Litigation</h3>
-                                <p class="description">Our litigation team handles disputes involving breach of contract, negligence, property damage, and more. We combine courtroom advocacy with strategic insight to resolve matters efficiently and effectively.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-file-signature"></i>
-                            <div class="text-content">
-                                <h3>Wills & Estates</h3>
-                                <p class="description">We offer comprehensive estate planning services, including wills, powers of attorney, trusts, and probate. We also assist with estate administration and disputes.</p>
-                            </div>
-                        </div>
+                
+                <div class="services-grid animate-on-scroll">
+                    <div class="service-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Corporate & Commercial Law</h3>
+                        <p>We provide strategic legal support to businesses at every stage of growth. Our services include incorporation, shareholder agreements, mergers and acquisitions, SaaS and IT contracts, and ongoing operational counsel.</p>
                     </div>
-                    <div class="slider-track reverse">
-                        <div class="slider-card">
-                            <i class="fas fa-passport"></i>
-                            <div class="text-content">
-                                <h3>Immigration Law</h3>
-                                <p class="description">Navigating Canada’s immigration system requires both legal expertise and strategic foresight. We assist with applications, appeals, and judicial reviews, helping individuals and families secure their status and plan for the future.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-user-tie"></i>
-                            <div class="text-content">
-                                <h3>Employment Law</h3>
-                                <p class="description">We advise both employees and employers on workplace rights and obligations. Our services include contract review, wrongful and constructive dismissal claims, workplace investigations, and mediation.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-home"></i>
-                            <div class="text-content">
-                                <h3>Landlord & Tenant Law</h3>
-                                <p class="description">We represent landlords and tenants in residential and commercial disputes, including evictions, lease violations, and rent recovery. Our approach emphasizes clarity in lease drafting and dispute resolution.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-receipt"></i>
-                            <div class="text-content">
-                                <h3>Small Claims Matters</h3>
-                                <p class="description">We offer efficient and cost-effective representation in Small Claims Court. Our services include document preparation, legal strategy, and courtroom advocacy for matters such as unpaid debts or property damage.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-comment-slash"></i>
-                            <div class="text-content">
-                                <h3>Defamation</h3>
-                                <p class="description">We assist individuals and businesses in addressing reputational harm caused by libel or slander. Our services include cease and desist letters, litigation, and strategic communication support.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-stamp"></i>
-                            <div class="text-content">
-                                <h3>Notarizations</h3>
-                                <p class="description">We offer prompt and reliable notarization and commissioning services for affidavits, statutory declarations, and other legal documents, ensuring your paperwork meets all legal requirements.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-passport"></i>
-                            <div class="text-content">
-                                <h3>Immigration Law</h3>
-                                <p class="description">Navigating Canada’s immigration system requires both legal expertise and strategic foresight. We assist with applications, appeals, and judicial reviews, helping individuals and families secure their status and plan for the future.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-user-tie"></i>
-                            <div class="text-content">
-                                <h3>Employment Law</h3>
-                                <p class="description">We advise both employees and employers on workplace rights and obligations. Our services include contract review, wrongful and constructive dismissal claims, workplace investigations, and mediation.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-home"></i>
-                            <div class="text-content">
-                                <h3>Landlord & Tenant Law</h3>
-                                <p class="description">We represent landlords and tenants in residential and commercial disputes, including evictions, lease violations, and rent recovery. Our approach emphasizes clarity in lease drafting and dispute resolution.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-receipt"></i>
-                            <div class="text-content">
-                                <h3>Small Claims Matters</h3>
-                                <p class="description">We offer efficient and cost-effective representation in Small Claims Court. Our services include document preparation, legal strategy, and courtroom advocacy for matters such as unpaid debts or property damage.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-comment-slash"></i>
-                            <div class="text-content">
-                                <h3>Defamation</h3>
-                                <p class="description">We assist individuals and businesses in addressing reputational harm caused by libel or slander. Our services include cease and desist letters, litigation, and strategic communication support.</p>
-                            </div>
-                        </div>
-                        <div class="slider-card">
-                            <i class="fas fa-stamp"></i>
-                            <div class="text-content">
-                                <h3>Notarizations</h3>
-                                <p class="description">We offer prompt and reliable notarization and commissioning services for affidavits, statutory declarations, and other legal documents, ensuring your paperwork meets all legal requirements.</p>
-                            </div>
-                        </div>
+                    <div class="service-card">
+                        <i class="fas fa-hard-hat"></i>
+                        <h3>Construction Law</h3>
+                        <p>Our construction law practice offers end-to-end support across the lifecycle of a project. We advise owners, developers, and contractors on EPCM contracts, risk allocation, procurement, and dispute resolution.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Criminal Law</h3>
+                        <p>We provide robust defence for individuals facing criminal charges, from bail hearings to trial advocacy. Our approach is resolution-focused and grounded in strategic litigation experience.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Family Law</h3>
+                        <p>Family law matters require both legal precision and emotional intelligence. We assist clients with divorce, separation, custody and access, parenting plans, and spousal support.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Civil Litigation</h3>
+                        <p>Our litigation team handles disputes involving breach of contract, negligence, property damage, and more. We combine courtroom advocacy with strategic insight to resolve matters efficiently and effectively.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-file-signature"></i>
+                        <h3>Wills & Estates</h3>
+                        <p>We offer comprehensive estate planning services, including wills, powers of attorney, trusts, and probate. We also assist with estate administration and disputes.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-passport"></i>
+                        <h3>Immigration Law</h3>
+                        <p>Navigating Canada’s immigration system requires both legal expertise and strategic foresight. We assist with applications, appeals, and judicial reviews, helping individuals and families secure their status and plan for the future.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>Employment Law</h3>
+                        <p>We advise both employees and employers on workplace rights and obligations. Our services include contract review, wrongful and constructive dismissal claims, workplace investigations, and mediation.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Landlord & Tenant Law</h3>
+                        <p>We represent landlords and tenants in residential and commercial disputes, including evictions, lease violations, and rent recovery. Our approach emphasizes clarity in lease drafting and dispute resolution.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-receipt"></i>
+                        <h3>Small Claims Matters</h3>
+                        <p>We offer efficient and cost-effective representation in Small Claims Court. Our services include document preparation, legal strategy, and courtroom advocacy for matters such as unpaid debts or property damage.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-comment-slash"></i>
+                        <h3>Defamation</h3>
+                        <p>We assist individuals and businesses in addressing reputational harm caused by libel or slander. Our services include cease and desist letters, litigation, and strategic communication support.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-stamp"></i>
+                        <h3>Notarizations</h3>
+                        <p>We offer prompt and reliable notarization and commissioning services for affidavits, statutory declarations, and other legal documents, ensuring your paperwork meets all legal requirements.</p>
                     </div>
                 </div>
             </div>
@@ -526,8 +341,35 @@
         <section class="py-20" id="team">
             <div class="container">
                 <h2 class="text-center text-4xl font-bold mb-12 animate-on-scroll">Meet our Lawyers</h2>
-                <div class="team-member-card animate-on-scroll"><div class="team-member-content"><div class="team-member-image"><img src="arjuns.png" alt="Arjun Sekhon, Managing Lawyer at our Oakville law firm" onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=ARJUN+SEKHON';"></div><div class="team-member-text"><h3 class="font-bold mb-1">Arjun Sekhon</h3><span class="title">Managing Lawyer</span><p class="text-gray-600">Arjun provides timely, practical advice in Criminal, Family, Employment, and Immigration law, drawing from his experience in courtroom and in-house counsel roles. As a General Counsel, he has guided companies on IP litigation and US expansion. Outside of law, he is an active volunteer and board member with community organizations.</p><a href="arjun-sekhon.html" class="text-blue-600 hover:text-blue-800 font-semibold mt-4 inline-block">Learn More About Arjun <i class="fas fa-arrow-right ml-1 text-sm"></i></a></div></div></div>
-                <div class="team-member-card animate-on-scroll"><div class="team-member-content image-right"><div class="team-member-image"><img src="daniel.png" alt="Daniel Ibrahim, Of Counsel at Lakeshore Law in Oakville" onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=DANIEL+IBRAHIM';"></div><div class="team-member-text"><h3 class="font-bold mb-1">Daniel Ibrahim</h3><span class="title">Of Counsel</span><p class="text-gray-600">Known for his meticulous preparation and strong courtroom presence, Daniel's practice is built around litigation in municipal law, construction disputes, and civil litigation. As “Of Counsel” at Lakeshore Law, Daniel provides high-level litigation support and legal insight, ensuring clients receive comprehensive, results-oriented representation while focusing on ethical and transparent practices.</p><a href="daniel-ibrahim.html" class="text-blue-600 hover:text-blue-800 font-semibold mt-4 inline-block">Learn More About Daniel <i class="fas fa-arrow-right ml-1 text-sm"></i></a></div></div></div>
+                
+                <div class="team-member-card animate-on-scroll">
+                    <div class="team-member-content">
+                        <div class="team-member-image">
+                            <img src="arjuns.png" alt="Arjun Sekhon, Managing Lawyer at our Oakville law firm" onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=ARJUN+SEKHON';">
+                        </div>
+                        <div class="team-member-text">
+                            <h3 class="font-bold mb-1">Arjun Sekhon</h3>
+                            <span class="title">Managing Lawyer</span>
+                            <p class="text-gray-600 mb-4">Arjun practices Corporate, Commercial, Criminal and Construction Law in both Oakville and Toronto. He advises clients on M&A matters, risk assessment, transactions, technology consulting, and corporate finance.</p>
+                            <p class="text-gray-500 text-sm italic">*Arjun provides legal services through a professional corporation.</p>
+                            <a href="arjun-sekhon.html" class="text-blue-600 hover:text-blue-800 font-semibold mt-4 inline-block">Learn More About Arjun <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-member-card animate-on-scroll">
+                    <div class="team-member-content image-right">
+                        <div class="team-member-image">
+                            <img src="daniel.png" alt="Daniel Ibrahim, Of Counsel at Lakeshore Law in Oakville" onerror="this.onerror=null;this.src='https://placehold.co/400x500/EBF4FF/0A2342?text=DANIEL+IBRAHIM';">
+                        </div>
+                        <div class="team-member-text">
+                            <h3 class="font-bold mb-1">Daniel Ibrahim</h3>
+                            <span class="title">Of Counsel</span>
+                            <p class="text-gray-600">Known for his meticulous preparation and strong courtroom presence, Daniel's practice is built around litigation in municipal law, construction disputes, and civil litigation. As “Of Counsel” at Lakeshore Law, Daniel provides high-level litigation support and legal insight, ensuring clients receive comprehensive, results-oriented representation while focusing on ethical and transparent practices.</p>
+                            <a href="daniel-ibrahim.html" class="text-blue-600 hover:text-blue-800 font-semibold mt-4 inline-block">Learn More About Daniel <i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -721,4 +563,3 @@
     </script>
 </body>
 </html>
-
