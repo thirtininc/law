@@ -102,6 +102,16 @@
         .xdulr-logo svg { width: 24px; height: 24px; display: block; }
         .logo-fill-dark { fill: #b0c4de; transition: fill 0.3s ease; }
         .xdulr-logo:hover .logo-fill-dark { fill: #ffffff; }
+
+        /* Mobile Navigation Fix */
+        @media (max-width: 768px) {
+            body { padding-top: 100px; }
+            .navbar { max-width: 90%; border-radius: 1rem; flex-direction: column; padding: 15px; justify-content: center; }
+            .nav-link-group { display: flex; flex-direction: row; justify-content: space-around; width: 100%; gap: 0; margin-left: 0; padding-top: 10px; }
+            .logo { position: relative; left: auto; top: auto; transform: none; padding-bottom: 0; margin: 0; padding-left: 0; }
+            .logo svg { width: 40px; height: 40px; }
+            .logo-text { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
@@ -226,7 +236,7 @@
                     </div>
                      <div class="flex items-center gap-4 text-lg">
                         <i class="fab fa-linkedin text-2xl text-primary-color"></i>
-                        <a href="https://www.linkedin.com/in/arjunsekhon" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-primary-color">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/arjunesekhon" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-primary-color">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -240,7 +250,7 @@
                     <h4 class="text-xl font-bold mb-5">About Lakeshore Law</h4>
                     <p class="mb-5">We combine deep legal expertise with industry insight to help you anticipate risk, seize opportunity, and move forward with confidence. Our lawyers are not just advisors — they are collaborators, problem-solvers, and champions of your vision.</p>
                     <div class="footer-social-links">
-                        <a href="https://www.linkedin.com/in/arjunesekhon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/in/arjunsekhon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://www.instagram.com/lakeshorelaw" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
